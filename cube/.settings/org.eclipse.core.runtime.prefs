@@ -1,0 +1,6 @@
+#Sun Oct 30 13:15:42 BRST 2011
+content-types/enabled=true
+content-types/org.eclipse.cdt.core.cSource/file-extensions=vert,frag,geom
+content-types/org.eclipse.cdt.core.cxxHeader/file-extensions=h
+content-types/org.eclipse.cdt.core.cxxSource/file-names=*cpp
+eclipse.preferences.version=1

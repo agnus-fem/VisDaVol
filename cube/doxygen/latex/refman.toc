@@ -1,0 +1,111 @@
+\contentsline {chapter}{\numberline {1}Class Index}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Class List}{1}{section.1.1}
+\contentsline {chapter}{\numberline {2}File Index}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}File List}{3}{section.2.1}
+\contentsline {chapter}{\numberline {3}Class Documentation}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}colorMap\_\discretionary {-}{}{}item Struct Reference}{5}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Member Data Documentation}{5}{subsection.3.1.1}
+\contentsline {subsubsection}{\numberline {3.1.1.1}alfa}{5}{subsubsection.3.1.1.1}
+\contentsline {subsubsection}{\numberline {3.1.1.2}b}{5}{subsubsection.3.1.1.2}
+\contentsline {subsubsection}{\numberline {3.1.1.3}g}{5}{subsubsection.3.1.1.3}
+\contentsline {subsubsection}{\numberline {3.1.1.4}r}{5}{subsubsection.3.1.1.4}
+\contentsline {chapter}{\numberline {4}File Documentation}{7}{chapter.4}
+\contentsline {section}{\numberline {4.1}/home/aahmgbr/Dropbox/unicamp/disciplinas/IA369/MeusProgramas/workspace/cube/src/glsl.cpp File Reference}{7}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Function Documentation}{8}{subsection.4.1.1}
+\contentsline {subsubsection}{\numberline {4.1.1.1}printProgramInfoLog}{8}{subsubsection.4.1.1.1}
+\contentsline {subsubsection}{\numberline {4.1.1.2}printShaderInfoLog}{8}{subsubsection.4.1.1.2}
+\contentsline {subsubsection}{\numberline {4.1.1.3}setShaders}{8}{subsubsection.4.1.1.3}
+\contentsline {subsubsection}{\numberline {4.1.1.4}textFileRead}{8}{subsubsection.4.1.1.4}
+\contentsline {subsubsection}{\numberline {4.1.1.5}textFileWrite}{8}{subsubsection.4.1.1.5}
+\contentsline {subsection}{\numberline {4.1.2}Variable Documentation}{8}{subsection.4.1.2}
+\contentsline {subsubsection}{\numberline {4.1.2.1}f}{8}{subsubsection.4.1.2.1}
+\contentsline {subsubsection}{\numberline {4.1.2.2}f2}{8}{subsubsection.4.1.2.2}
+\contentsline {subsubsection}{\numberline {4.1.2.3}g}{8}{subsubsection.4.1.2.3}
+\contentsline {subsubsection}{\numberline {4.1.2.4}gh}{8}{subsubsection.4.1.2.4}
+\contentsline {subsubsection}{\numberline {4.1.2.5}gw}{8}{subsubsection.4.1.2.5}
+\contentsline {subsubsection}{\numberline {4.1.2.6}p}{8}{subsubsection.4.1.2.6}
+\contentsline {subsubsection}{\numberline {4.1.2.7}v}{8}{subsubsection.4.1.2.7}
+\contentsline {section}{\numberline {4.2}/home/aahmgbr/Dropbox/unicamp/disciplinas/IA369/MeusProgramas/workspace/cube/src/glsl.h File Reference}{8}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Function Documentation}{9}{subsection.4.2.1}
+\contentsline {subsubsection}{\numberline {4.2.1.1}printProgramInfoLog}{9}{subsubsection.4.2.1.1}
+\contentsline {subsubsection}{\numberline {4.2.1.2}printShaderInfoLog}{9}{subsubsection.4.2.1.2}
+\contentsline {subsubsection}{\numberline {4.2.1.3}setShaders}{9}{subsubsection.4.2.1.3}
+\contentsline {subsubsection}{\numberline {4.2.1.4}textFileRead}{9}{subsubsection.4.2.1.4}
+\contentsline {subsubsection}{\numberline {4.2.1.5}textFileWrite}{9}{subsubsection.4.2.1.5}
+\contentsline {section}{\numberline {4.3}/home/aahmgbr/Dropbox/unicamp/disciplinas/IA369/MeusProgramas/workspace/cube/src/main.cpp File Reference}{9}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Define Documentation}{11}{subsection.4.3.1}
+\contentsline {subsubsection}{\numberline {4.3.1.1}ESCAPE}{11}{subsubsection.4.3.1.1}
+\contentsline {subsubsection}{\numberline {4.3.1.2}X}{11}{subsubsection.4.3.1.2}
+\contentsline {subsubsection}{\numberline {4.3.1.3}Y}{11}{subsubsection.4.3.1.3}
+\contentsline {subsubsection}{\numberline {4.3.1.4}Z}{11}{subsubsection.4.3.1.4}
+\contentsline {subsection}{\numberline {4.3.2}Function Documentation}{11}{subsection.4.3.2}
+\contentsline {subsubsection}{\numberline {4.3.2.1}abs}{11}{subsubsection.4.3.2.1}
+\contentsline {subsubsection}{\numberline {4.3.2.2}clamp}{11}{subsubsection.4.3.2.2}
+\contentsline {subsubsection}{\numberline {4.3.2.3}createPreintegrationTable}{13}{subsubsection.4.3.2.3}
+\contentsline {subsubsection}{\numberline {4.3.2.4}DrawCube}{13}{subsubsection.4.3.2.4}
+\contentsline {subsubsection}{\numberline {4.3.2.5}DrawCube1}{13}{subsubsection.4.3.2.5}
+\contentsline {subsubsection}{\numberline {4.3.2.6}DrawGLScene}{13}{subsubsection.4.3.2.6}
+\contentsline {subsubsection}{\numberline {4.3.2.7}DrawSliceStack}{13}{subsubsection.4.3.2.7}
+\contentsline {subsubsection}{\numberline {4.3.2.8}FindAbsMaximum}{13}{subsubsection.4.3.2.8}
+\contentsline {subsubsection}{\numberline {4.3.2.9}GerenciaMouse}{13}{subsubsection.4.3.2.9}
+\contentsline {subsubsection}{\numberline {4.3.2.10}InitDraw}{13}{subsubsection.4.3.2.10}
+\contentsline {subsubsection}{\numberline {4.3.2.11}InitGL}{13}{subsubsection.4.3.2.11}
+\contentsline {subsubsection}{\numberline {4.3.2.12}InitTexture}{13}{subsubsection.4.3.2.12}
+\contentsline {subsubsection}{\numberline {4.3.2.13}InvertMatrix}{13}{subsubsection.4.3.2.13}
+\contentsline {subsubsection}{\numberline {4.3.2.14}keyPressed}{13}{subsubsection.4.3.2.14}
+\contentsline {subsubsection}{\numberline {4.3.2.15}main}{13}{subsubsection.4.3.2.15}
+\contentsline {subsubsection}{\numberline {4.3.2.16}MatrixInvRotate}{13}{subsubsection.4.3.2.16}
+\contentsline {subsubsection}{\numberline {4.3.2.17}MatrixMultiply}{13}{subsubsection.4.3.2.17}
+\contentsline {subsubsection}{\numberline {4.3.2.18}MatVecMultiply}{13}{subsubsection.4.3.2.18}
+\contentsline {subsubsection}{\numberline {4.3.2.19}MoveMouse}{13}{subsubsection.4.3.2.19}
+\contentsline {subsubsection}{\numberline {4.3.2.20}MoveMouseBotaoPressionado}{13}{subsubsection.4.3.2.20}
+\contentsline {subsubsection}{\numberline {4.3.2.21}readRAW}{13}{subsubsection.4.3.2.21}
+\contentsline {subsubsection}{\numberline {4.3.2.22}ReSizeGLScene}{13}{subsubsection.4.3.2.22}
+\contentsline {subsubsection}{\numberline {4.3.2.23}VectorRotate}{13}{subsubsection.4.3.2.23}
+\contentsline {subsection}{\numberline {4.3.3}Variable Documentation}{13}{subsection.4.3.3}
+\contentsline {subsubsection}{\numberline {4.3.3.1}btStatus}{13}{subsubsection.4.3.3.1}
+\contentsline {subsubsection}{\numberline {4.3.3.2}d\_\discretionary {-}{}{}height}{13}{subsubsection.4.3.3.2}
+\contentsline {subsubsection}{\numberline {4.3.3.3}d\_\discretionary {-}{}{}nsli}{13}{subsubsection.4.3.3.3}
+\contentsline {subsubsection}{\numberline {4.3.3.4}d\_\discretionary {-}{}{}slices}{13}{subsubsection.4.3.3.4}
+\contentsline {subsubsection}{\numberline {4.3.3.5}d\_\discretionary {-}{}{}width}{13}{subsubsection.4.3.3.5}
+\contentsline {subsubsection}{\numberline {4.3.3.6}high\_\discretionary {-}{}{}shininess}{13}{subsubsection.4.3.3.6}
+\contentsline {subsubsection}{\numberline {4.3.3.7}light\_\discretionary {-}{}{}ambient}{13}{subsubsection.4.3.3.7}
+\contentsline {subsubsection}{\numberline {4.3.3.8}light\_\discretionary {-}{}{}diffuse}{13}{subsubsection.4.3.3.8}
+\contentsline {subsubsection}{\numberline {4.3.3.9}light\_\discretionary {-}{}{}position}{13}{subsubsection.4.3.3.9}
+\contentsline {subsubsection}{\numberline {4.3.3.10}light\_\discretionary {-}{}{}specular}{13}{subsubsection.4.3.3.10}
+\contentsline {subsubsection}{\numberline {4.3.3.11}m}{13}{subsubsection.4.3.3.11}
+\contentsline {subsubsection}{\numberline {4.3.3.12}mat\_\discretionary {-}{}{}ambient}{13}{subsubsection.4.3.3.12}
+\contentsline {subsubsection}{\numberline {4.3.3.13}mat\_\discretionary {-}{}{}diffuse}{13}{subsubsection.4.3.3.13}
+\contentsline {subsubsection}{\numberline {4.3.3.14}mat\_\discretionary {-}{}{}specular}{13}{subsubsection.4.3.3.14}
+\contentsline {subsubsection}{\numberline {4.3.3.15}oldXp}{13}{subsubsection.4.3.3.15}
+\contentsline {subsubsection}{\numberline {4.3.3.16}oldXr}{13}{subsubsection.4.3.3.16}
+\contentsline {subsubsection}{\numberline {4.3.3.17}oldYp}{13}{subsubsection.4.3.3.17}
+\contentsline {subsubsection}{\numberline {4.3.3.18}oldYr}{13}{subsubsection.4.3.3.18}
+\contentsline {subsubsection}{\numberline {4.3.3.19}pcube}{13}{subsubsection.4.3.3.19}
+\contentsline {subsubsection}{\numberline {4.3.3.20}raw}{13}{subsubsection.4.3.3.20}
+\contentsline {subsubsection}{\numberline {4.3.3.21}rcubex}{13}{subsubsection.4.3.3.21}
+\contentsline {subsubsection}{\numberline {4.3.3.22}rcubey}{13}{subsubsection.4.3.3.22}
+\contentsline {subsubsection}{\numberline {4.3.3.23}stick}{13}{subsubsection.4.3.3.23}
+\contentsline {subsubsection}{\numberline {4.3.3.24}texData}{13}{subsubsection.4.3.3.24}
+\contentsline {subsubsection}{\numberline {4.3.3.25}texdepth}{13}{subsubsection.4.3.3.25}
+\contentsline {subsubsection}{\numberline {4.3.3.26}texheight}{13}{subsubsection.4.3.3.26}
+\contentsline {subsubsection}{\numberline {4.3.3.27}texid}{13}{subsubsection.4.3.3.27}
+\contentsline {subsubsection}{\numberline {4.3.3.28}texwidth}{13}{subsubsection.4.3.3.28}
+\contentsline {subsubsection}{\numberline {4.3.3.29}theVolume}{13}{subsubsection.4.3.3.29}
+\contentsline {subsubsection}{\numberline {4.3.3.30}tick}{13}{subsubsection.4.3.3.30}
+\contentsline {subsubsection}{\numberline {4.3.3.31}tk}{13}{subsubsection.4.3.3.31}
+\contentsline {subsubsection}{\numberline {4.3.3.32}TproxyGeometry}{13}{subsubsection.4.3.3.32}
+\contentsline {subsubsection}{\numberline {4.3.3.33}window}{13}{subsubsection.4.3.3.33}
+\contentsline {subsubsection}{\numberline {4.3.3.34}winHeight}{13}{subsubsection.4.3.3.34}
+\contentsline {subsubsection}{\numberline {4.3.3.35}winWidth}{13}{subsubsection.4.3.3.35}
+\contentsline {section}{\numberline {4.4}/home/aahmgbr/Dropbox/unicamp/disciplinas/IA369/MeusProgramas/workspace/cube/src/transf.cpp File Reference}{13}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Function Documentation}{14}{subsection.4.4.1}
+\contentsline {subsubsection}{\numberline {4.4.1.1}colorMapRead}{14}{subsubsection.4.4.1.1}
+\contentsline {subsubsection}{\numberline {4.4.1.2}colorMapWrite}{14}{subsubsection.4.4.1.2}
+\contentsline {section}{\numberline {4.5}/home/aahmgbr/Dropbox/unicamp/disciplinas/IA369/MeusProgramas/workspace/cube/src/transf.h File Reference}{15}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Typedef Documentation}{15}{subsection.4.5.1}
+\contentsline {subsubsection}{\numberline {4.5.1.1}COLORMAP}{15}{subsubsection.4.5.1.1}
+\contentsline {subsubsection}{\numberline {4.5.1.2}COLORMAP\_\discretionary {-}{}{}ITEM}{15}{subsubsection.4.5.1.2}
+\contentsline {subsection}{\numberline {4.5.2}Function Documentation}{15}{subsection.4.5.2}
+\contentsline {subsubsection}{\numberline {4.5.2.1}colorMapRead}{15}{subsubsection.4.5.2.1}
+\contentsline {subsubsection}{\numberline {4.5.2.2}colorMapWrite}{16}{subsubsection.4.5.2.2}

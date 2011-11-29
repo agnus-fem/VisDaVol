@@ -1,0 +1,134 @@
+.TH "/home/aahmgbr/Dropbox/unicamp/disciplinas/IA369/MeusProgramas/workspace/cube/src/transf.h" 3 "Mon Nov 28 2011" "Version V1.04" "VisDaVol" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/aahmgbr/Dropbox/unicamp/disciplinas/IA369/MeusProgramas/workspace/cube/src/transf.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio.h>\fP
+.br
+\fC#include <stdlib.h>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBcolorMap_item\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBcolorMap_item\fP \fBCOLORMAP_ITEM\fP"
+.br
+.ti -1c
+.RI "typedef \fBCOLORMAP_ITEM\fP \fBCOLORMAP\fP [256]"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBcolorMapRead\fP (char *fn, \fBCOLORMAP\fP cm)"
+.br
+.RI "\fIEsta função realiza a leitura de um mapa de cores que representa a função de transferência. \fP"
+.ti -1c
+.RI "void \fBcolorMapWrite\fP (char *fn, \fBCOLORMAP\fP cm)"
+.br
+.RI "\fIEsta função realiza escrita de um mapa de cores que representa a função de transferência. \fP"
+.ti -1c
+.RI "void \fBcreateColorMap\fP (\fBCOLORMAP\fP cm)"
+.br
+.RI "\fIEsta função cria um mapa de cores que representa a função de transferência. \fP"
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef \fBCOLORMAP_ITEM\fP \fBCOLORMAP\fP[256]"
+.SS "typedef struct \fBcolorMap_item\fP \fBCOLORMAP_ITEM\fP"
+.SH "Function Documentation"
+.PP 
+.SS "void colorMapRead (char * fn, \fBCOLORMAP\fP cm)"
+.PP
+Esta função realiza a leitura de um mapa de cores que representa a função de transferência. /*! 
+.PP
+\fBAuthor:\fP
+.RS 4
+Agnus A. Horta. 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+02/11/2011 
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+1.0 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfn\fP uma cadeia de caracteres que representa o nome do arquivo que contém o mapa de cores 
+.br
+\fIcm\fP representa o ponteiro que indica onde será armazenado o mapa de cores 
+.RE
+.PP
+
+.SS "void colorMapWrite (char * fn, \fBCOLORMAP\fP cm)"
+.PP
+Esta função realiza escrita de um mapa de cores que representa a função de transferência. /*! 
+.PP
+\fBAuthor:\fP
+.RS 4
+Agnus A. Horta. 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+02/11/2011 
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+1.0 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfn\fP uma cadeia de caracteres que representa o nome do arquivo que conterá o mapa de cores 
+.br
+\fIcm\fP representa o ponteiro que indica onde esta armazenado o mapa de cores 
+.RE
+.PP
+
+.SS "void createColorMap (\fBCOLORMAP\fP cm)"
+.PP
+Esta função cria um mapa de cores que representa a função de transferência. /*! 
+.PP
+\fBAuthor:\fP
+.RS 4
+Agnus A. Horta. 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+25/11/2011 
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+1.0 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcm\fP representa o ponteiro que indica onde esta armazenado o mapa de cores 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VisDaVol from the source code.

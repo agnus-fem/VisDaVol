@@ -1,0 +1,593 @@
+\hypertarget{main_8cpp}{
+\section{/home/aahmgbr/Dropbox/unicamp/disciplinas/IA369/MeusProgramas/workspace/cube/src/main.cpp File Reference}
+\label{main_8cpp}\index{/home/aahmgbr/Dropbox/unicamp/disciplinas/IA369/MeusProgramas/workspace/cube/src/main.cpp@{/home/aahmgbr/Dropbox/unicamp/disciplinas/IA369/MeusProgramas/workspace/cube/src/main.cpp}}
+}
+{\ttfamily \#include $<$unistd.h$>$}\par
+{\ttfamily \#include $<$stdio.h$>$}\par
+{\ttfamily \#include $<$string.h$>$}\par
+{\ttfamily \#include $<$math.h$>$}\par
+{\ttfamily \#include \char`\"{}glsl.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}transf.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{main_8cpp_a207fd5507206d307cd63f95374fcd00d}{X}~0
+\item 
+\#define \hyperlink{main_8cpp_a798e4073d613ca5ba9618e1b3253df14}{Y}~1
+\item 
+\#define \hyperlink{main_8cpp_a51591cf51bdd6c1f6015532422e7770e}{Z}~2
+\item 
+\#define \hyperlink{main_8cpp_afe4b0e625372cd38ec60150d6f5594b8}{ESCAPE}~27
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+GLubyte $\ast$ \hyperlink{main_8cpp_a760559a38be92bbe5c2679947c05c27f}{readRAW} (int argc, char $\ast$$\ast$argv)
+\item 
+GLubyte \hyperlink{main_8cpp_a32399bcd00a1eda5e5becf75bdd684e0}{clamp} (double value, const int min, const int max)
+\begin{DoxyCompactList}\small\item\em Esta função faz com que um valor fique restrito dentro de uma faixa de valores definida por um valor mínimo e máximo. \item\end{DoxyCompactList}\item 
+void \hyperlink{main_8cpp_a352f875809758e5cc02a4a9bdd7b4ff8}{createPreintegrationTable} (GLubyte $\ast$Table)
+\item 
+void \hyperlink{main_8cpp_a53e8a0561f609908c7eddf8018e22744}{DrawCube1} ()
+\item 
+float \hyperlink{main_8cpp_ad1df16b409bfbe19e24775a5e189f454}{abs} (float x)
+\item 
+int \hyperlink{main_8cpp_a7fc1674dadf08ff62a23a92b28484c4e}{FindAbsMaximum} (GLfloat pViewVector\mbox{[}4\mbox{]})
+\item 
+void \hyperlink{main_8cpp_a649c1683bbe237a03f4d2eba07fb6535}{MatrixMultiply} (GLfloat mtxin1\mbox{[}16\mbox{]}, GLfloat mtxin2\mbox{[}16\mbox{]}, GLfloat mtxout\mbox{[}16\mbox{]})
+\item 
+void \hyperlink{main_8cpp_acc9dfde2f9ac947845d788f38a3aa2d6}{MatrixInvRotate} (GLfloat mtxin\mbox{[}16\mbox{]}, GLfloat mtxout\mbox{[}16\mbox{]})
+\item 
+void \hyperlink{main_8cpp_a2b7840409c0a76bb5c8f7fc5fec06334}{VectorRotate} (const GLfloat vin\mbox{[}4\mbox{]}, const GLfloat mtx\mbox{[}16\mbox{]}, GLfloat vout\mbox{[}4\mbox{]})
+\item 
+void \hyperlink{main_8cpp_a50dc37e38a64771cdefd9197ed8f41ae}{InvertMatrix} (GLfloat mtxin\mbox{[}16\mbox{]}, GLfloat mtxout\mbox{[}16\mbox{]})
+\item 
+void \hyperlink{main_8cpp_a4c455ac94fbff3cc6c5531a1af293520}{DrawSliceStack} (int proxyGeometry)
+\item 
+void \hyperlink{main_8cpp_acb276731cc4a45780dccae74662c25b9}{MatVecMultiply} (GLfloat pModelViewMatrixInv\mbox{[}16\mbox{]}, GLfloat pViewVector\mbox{[}4\mbox{]})
+\item 
+void \hyperlink{main_8cpp_ac9683f118c0ee4042bd82581dd4fbf90}{DrawCube} ()
+\item 
+void \hyperlink{main_8cpp_ad684ebdecadeaa3a348be34505a8f68a}{InitTexture} ()
+\item 
+void \hyperlink{main_8cpp_a5d476a84bd1c056a7889190898386c31}{InitDraw} (void)
+\item 
+void \hyperlink{main_8cpp_ac8d2055368b431f82f03449410409ad0}{InitGL} (int Width, int Height)
+\item 
+void \hyperlink{main_8cpp_aaeedc5c1c90eff3a2950f1a2dbbdac6c}{ReSizeGLScene} (int Width, int Height)
+\item 
+void \hyperlink{main_8cpp_a3f50a3778a5799e1dd9cf4547cf73ad3}{DrawGLScene} ()
+\item 
+void \hyperlink{main_8cpp_ae49b22892a1276b5e664963496a34177}{keyPressed} (unsigned char key, int x, int y)
+\item 
+void \hyperlink{main_8cpp_a405a8d38149cfa466629a23e9a3e2289}{MoveMouseBotaoPressionado} (int x, int y)
+\item 
+void \hyperlink{main_8cpp_ac78df2ede099ccb50e0fed7b0352c24c}{MoveMouse} (int x, int y)
+\item 
+void \hyperlink{main_8cpp_a177423aabf39051d0c985845cfd65ea2}{GerenciaMouse} (int button, int state, int x, int y)
+\item 
+int \hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{main_8cpp_a65ba7a0b8164c01b33d92b9ab0f2af03}{window}
+\item 
+float \hyperlink{main_8cpp_a57fa3d20fccdbeabada817659e0ca5ce}{rcubex} = 0.0f
+\item 
+float \hyperlink{main_8cpp_aff9022eb87d86faf8f912b302c8a794b}{rcubey} = 0.0f
+\item 
+float \hyperlink{main_8cpp_ae718f8eaf729b3ea8131e8f424724273}{pcube} = -\/2.0f
+\item 
+char \hyperlink{main_8cpp_a3dd06e6b317cb120e6b797d3a04fad55}{btStatus} = 0
+\item 
+GLuint \hyperlink{main_8cpp_a169b9f06ff313a85f57f45c8bb9a2159}{texid}
+\item 
+int \hyperlink{main_8cpp_ae2482823e7d14f18dc9dc919f8c46802}{texwidth} = 64
+\item 
+int \hyperlink{main_8cpp_a7dc541ce631d2e1d5d03a494cca2fbfd}{texheight} = 64
+\item 
+int \hyperlink{main_8cpp_a73c15322164b57239dd1b324846a52cb}{texdepth} = 64
+\item 
+float \hyperlink{main_8cpp_a44c17547fc485a6add8f6f233463c5b7}{tick} = 0
+\item 
+float \hyperlink{main_8cpp_a34fb96d3e60f782c72de5ac6b915032a}{stick} = 1
+\item 
+GLubyte $\ast$ \hyperlink{main_8cpp_a27fdfeb2d1da1ed1e213af6eb550b24f}{texData}
+\item 
+int \hyperlink{main_8cpp_ad49412925c79a9894ea598530ea39b00}{d\_\-width}
+\item 
+int \hyperlink{main_8cpp_ad31494204fdd3d2cb30faba527cfb9fa}{d\_\-height}
+\item 
+int \hyperlink{main_8cpp_a27488496a0017a251d120bce74da2e43}{d\_\-slices}
+\item 
+int \hyperlink{main_8cpp_a5219b16b08f8d31832acf7154e871b4e}{d\_\-nsli}
+\item 
+GLubyte $\ast$ \hyperlink{main_8cpp_aa50a364932b2a3a061b6836ac880b4e9}{raw}
+\item 
+const GLfloat \hyperlink{main_8cpp_a35b44e70b5291d4c6a2ddfa0ffe062e8}{light\_\-ambient} \mbox{[}$\,$\mbox{]} = \{ 0.0f, 0.0f, 0.0f, 1.0f \}
+\item 
+const GLfloat \hyperlink{main_8cpp_ad0bc3e49164c7d5d01dd6b4a0d0fff25}{light\_\-diffuse} \mbox{[}$\,$\mbox{]} = \{ 1.0f, 1.0f, 1.0f, 1.0f \}
+\item 
+const GLfloat \hyperlink{main_8cpp_a48537988fd7a403709b0a7ffcbebac77}{light\_\-specular} \mbox{[}$\,$\mbox{]} = \{ 1.0f, 1.0f, 1.0f, 1.0f \}
+\item 
+const GLfloat \hyperlink{main_8cpp_aea3c4afba5fcc8b77067671d396b577b}{light\_\-position} \mbox{[}$\,$\mbox{]} = \{ 2.0f, 5.0f, 5.0f, 0.0f \}
+\item 
+const GLfloat \hyperlink{main_8cpp_adfbd08e06a4a9fc898f6a3b9797316d8}{mat\_\-ambient} \mbox{[}$\,$\mbox{]} = \{ 0.7f, 0.7f, 0.7f, 1.0f \}
+\item 
+const GLfloat \hyperlink{main_8cpp_aabea2510d410c6e2c8470a262cdabada}{mat\_\-diffuse} \mbox{[}$\,$\mbox{]} = \{ 0.8f, 0.8f, 0.8f, 1.0f \}
+\item 
+const GLfloat \hyperlink{main_8cpp_aa024b50a93b02ad54fc180d4729d8735}{mat\_\-specular} \mbox{[}$\,$\mbox{]} = \{ 1.0f, 1.0f, 1.0f, 1.0f \}
+\item 
+const GLfloat \hyperlink{main_8cpp_a93c2ee41abd3c06ade37dd87e48a8a33}{high\_\-shininess} \mbox{[}$\,$\mbox{]} = \{ 100.0f \}
+\item 
+int \hyperlink{main_8cpp_a51aeec8523eeaee596e1f8f73d9b0233}{winWidth}
+\item 
+int \hyperlink{main_8cpp_a092dc054ffbc72785c6c416eac5ba6c2}{winHeight}
+\item 
+int \hyperlink{main_8cpp_aab7251e1d315280864284925e422c596}{oldXr}
+\item 
+int \hyperlink{main_8cpp_ac56c3006d83e01536c81ea235ff90555}{oldYr}
+\item 
+int \hyperlink{main_8cpp_ab228548b8f0e557584ad70ed635cda21}{oldXp}
+\item 
+int \hyperlink{main_8cpp_a229dbe236b483bd963c4d71cbfae9b3d}{oldYp}
+\item 
+float \hyperlink{main_8cpp_a3a49e9bae6aba7d0daec651613ab841c}{tk}
+\item 
+GLuint \hyperlink{main_8cpp_a9d74d90913cc3f52108fddb8a13a1fbe}{theVolume} \mbox{[}6\mbox{]}
+\item 
+float \hyperlink{main_8cpp_a68147cce833d98b698183d68629e38d5}{m} \mbox{[}16\mbox{]}
+\item 
+int \hyperlink{main_8cpp_ab630011d522b1305d06b1abf2ba866fe}{TproxyGeometry} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{main_8cpp_afe4b0e625372cd38ec60150d6f5594b8}{
+\index{main.cpp@{main.cpp}!ESCAPE@{ESCAPE}}
+\index{ESCAPE@{ESCAPE}!main.cpp@{main.cpp}}
+\subsubsection[{ESCAPE}]{\setlength{\rightskip}{0pt plus 5cm}\#define ESCAPE~27}}
+\label{main_8cpp_afe4b0e625372cd38ec60150d6f5594b8}
+\hypertarget{main_8cpp_a207fd5507206d307cd63f95374fcd00d}{
+\index{main.cpp@{main.cpp}!X@{X}}
+\index{X@{X}!main.cpp@{main.cpp}}
+\subsubsection[{X}]{\setlength{\rightskip}{0pt plus 5cm}\#define X~0}}
+\label{main_8cpp_a207fd5507206d307cd63f95374fcd00d}
+\hypertarget{main_8cpp_a798e4073d613ca5ba9618e1b3253df14}{
+\index{main.cpp@{main.cpp}!Y@{Y}}
+\index{Y@{Y}!main.cpp@{main.cpp}}
+\subsubsection[{Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y~1}}
+\label{main_8cpp_a798e4073d613ca5ba9618e1b3253df14}
+\hypertarget{main_8cpp_a51591cf51bdd6c1f6015532422e7770e}{
+\index{main.cpp@{main.cpp}!Z@{Z}}
+\index{Z@{Z}!main.cpp@{main.cpp}}
+\subsubsection[{Z}]{\setlength{\rightskip}{0pt plus 5cm}\#define Z~2}}
+\label{main_8cpp_a51591cf51bdd6c1f6015532422e7770e}
+
+
+\subsection{Function Documentation}
+\hypertarget{main_8cpp_ad1df16b409bfbe19e24775a5e189f454}{
+\index{main.cpp@{main.cpp}!abs@{abs}}
+\index{abs@{abs}!main.cpp@{main.cpp}}
+\subsubsection[{abs}]{\setlength{\rightskip}{0pt plus 5cm}float abs (
+\begin{DoxyParamCaption}
+\item[{float}]{ x}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_ad1df16b409bfbe19e24775a5e189f454}
+\hypertarget{main_8cpp_a32399bcd00a1eda5e5becf75bdd684e0}{
+\index{main.cpp@{main.cpp}!clamp@{clamp}}
+\index{clamp@{clamp}!main.cpp@{main.cpp}}
+\subsubsection[{clamp}]{\setlength{\rightskip}{0pt plus 5cm}GLubyte clamp (
+\begin{DoxyParamCaption}
+\item[{double}]{ value, }
+\item[{const int}]{ min, }
+\item[{const int}]{ max}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_a32399bcd00a1eda5e5becf75bdd684e0}
+
+
+Esta função faz com que um valor fique restrito dentro de uma faixa de valores definida por um valor mínimo e máximo. 
+
+/$\ast$! \begin{DoxyAuthor}{Author}
+Agnus A. Horta. 
+\end{DoxyAuthor}
+\begin{DoxySince}{Since}
+30/10/2011 
+\end{DoxySince}
+\begin{DoxyVersion}{Version}
+1.0 
+\end{DoxyVersion}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em value}]um float que representa o valor a ser truncado. \item[{\em min}]um inteiro que representa constante que define o valor inicial de truncamento. \item[{\em max}]um inteiro que representa constante que define o valor final de truncamento. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+um inteiro. 
+\end{DoxyReturn}
+\hypertarget{main_8cpp_a352f875809758e5cc02a4a9bdd7b4ff8}{
+\index{main.cpp@{main.cpp}!createPreintegrationTable@{createPreintegrationTable}}
+\index{createPreintegrationTable@{createPreintegrationTable}!main.cpp@{main.cpp}}
+\subsubsection[{createPreintegrationTable}]{\setlength{\rightskip}{0pt plus 5cm}void createPreintegrationTable (
+\begin{DoxyParamCaption}
+\item[{GLubyte $\ast$}]{ Table}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_a352f875809758e5cc02a4a9bdd7b4ff8}
+\hypertarget{main_8cpp_ac9683f118c0ee4042bd82581dd4fbf90}{
+\index{main.cpp@{main.cpp}!DrawCube@{DrawCube}}
+\index{DrawCube@{DrawCube}!main.cpp@{main.cpp}}
+\subsubsection[{DrawCube}]{\setlength{\rightskip}{0pt plus 5cm}void DrawCube (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_ac9683f118c0ee4042bd82581dd4fbf90}
+\hypertarget{main_8cpp_a53e8a0561f609908c7eddf8018e22744}{
+\index{main.cpp@{main.cpp}!DrawCube1@{DrawCube1}}
+\index{DrawCube1@{DrawCube1}!main.cpp@{main.cpp}}
+\subsubsection[{DrawCube1}]{\setlength{\rightskip}{0pt plus 5cm}void DrawCube1 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_a53e8a0561f609908c7eddf8018e22744}
+\hypertarget{main_8cpp_a3f50a3778a5799e1dd9cf4547cf73ad3}{
+\index{main.cpp@{main.cpp}!DrawGLScene@{DrawGLScene}}
+\index{DrawGLScene@{DrawGLScene}!main.cpp@{main.cpp}}
+\subsubsection[{DrawGLScene}]{\setlength{\rightskip}{0pt plus 5cm}void DrawGLScene (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_a3f50a3778a5799e1dd9cf4547cf73ad3}
+\hypertarget{main_8cpp_a4c455ac94fbff3cc6c5531a1af293520}{
+\index{main.cpp@{main.cpp}!DrawSliceStack@{DrawSliceStack}}
+\index{DrawSliceStack@{DrawSliceStack}!main.cpp@{main.cpp}}
+\subsubsection[{DrawSliceStack}]{\setlength{\rightskip}{0pt plus 5cm}void DrawSliceStack (
+\begin{DoxyParamCaption}
+\item[{int}]{ proxyGeometry}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_a4c455ac94fbff3cc6c5531a1af293520}
+\hypertarget{main_8cpp_a7fc1674dadf08ff62a23a92b28484c4e}{
+\index{main.cpp@{main.cpp}!FindAbsMaximum@{FindAbsMaximum}}
+\index{FindAbsMaximum@{FindAbsMaximum}!main.cpp@{main.cpp}}
+\subsubsection[{FindAbsMaximum}]{\setlength{\rightskip}{0pt plus 5cm}int FindAbsMaximum (
+\begin{DoxyParamCaption}
+\item[{GLfloat}]{ pViewVector\mbox{[}4\mbox{]}}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_a7fc1674dadf08ff62a23a92b28484c4e}
+\hypertarget{main_8cpp_a177423aabf39051d0c985845cfd65ea2}{
+\index{main.cpp@{main.cpp}!GerenciaMouse@{GerenciaMouse}}
+\index{GerenciaMouse@{GerenciaMouse}!main.cpp@{main.cpp}}
+\subsubsection[{GerenciaMouse}]{\setlength{\rightskip}{0pt plus 5cm}void GerenciaMouse (
+\begin{DoxyParamCaption}
+\item[{int}]{ button, }
+\item[{int}]{ state, }
+\item[{int}]{ x, }
+\item[{int}]{ y}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_a177423aabf39051d0c985845cfd65ea2}
+\hypertarget{main_8cpp_a5d476a84bd1c056a7889190898386c31}{
+\index{main.cpp@{main.cpp}!InitDraw@{InitDraw}}
+\index{InitDraw@{InitDraw}!main.cpp@{main.cpp}}
+\subsubsection[{InitDraw}]{\setlength{\rightskip}{0pt plus 5cm}void InitDraw (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_a5d476a84bd1c056a7889190898386c31}
+\hypertarget{main_8cpp_ac8d2055368b431f82f03449410409ad0}{
+\index{main.cpp@{main.cpp}!InitGL@{InitGL}}
+\index{InitGL@{InitGL}!main.cpp@{main.cpp}}
+\subsubsection[{InitGL}]{\setlength{\rightskip}{0pt plus 5cm}void InitGL (
+\begin{DoxyParamCaption}
+\item[{int}]{ Width, }
+\item[{int}]{ Height}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_ac8d2055368b431f82f03449410409ad0}
+\hypertarget{main_8cpp_ad684ebdecadeaa3a348be34505a8f68a}{
+\index{main.cpp@{main.cpp}!InitTexture@{InitTexture}}
+\index{InitTexture@{InitTexture}!main.cpp@{main.cpp}}
+\subsubsection[{InitTexture}]{\setlength{\rightskip}{0pt plus 5cm}void InitTexture (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_ad684ebdecadeaa3a348be34505a8f68a}
+\hypertarget{main_8cpp_a50dc37e38a64771cdefd9197ed8f41ae}{
+\index{main.cpp@{main.cpp}!InvertMatrix@{InvertMatrix}}
+\index{InvertMatrix@{InvertMatrix}!main.cpp@{main.cpp}}
+\subsubsection[{InvertMatrix}]{\setlength{\rightskip}{0pt plus 5cm}void InvertMatrix (
+\begin{DoxyParamCaption}
+\item[{GLfloat}]{ mtxin\mbox{[}16\mbox{]}, }
+\item[{GLfloat}]{ mtxout\mbox{[}16\mbox{]}}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_a50dc37e38a64771cdefd9197ed8f41ae}
+\hypertarget{main_8cpp_ae49b22892a1276b5e664963496a34177}{
+\index{main.cpp@{main.cpp}!keyPressed@{keyPressed}}
+\index{keyPressed@{keyPressed}!main.cpp@{main.cpp}}
+\subsubsection[{keyPressed}]{\setlength{\rightskip}{0pt plus 5cm}void keyPressed (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{ key, }
+\item[{int}]{ x, }
+\item[{int}]{ y}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_ae49b22892a1276b5e664963496a34177}
+\hypertarget{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{ argc, }
+\item[{char $\ast$$\ast$}]{ argv}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
+\hypertarget{main_8cpp_acc9dfde2f9ac947845d788f38a3aa2d6}{
+\index{main.cpp@{main.cpp}!MatrixInvRotate@{MatrixInvRotate}}
+\index{MatrixInvRotate@{MatrixInvRotate}!main.cpp@{main.cpp}}
+\subsubsection[{MatrixInvRotate}]{\setlength{\rightskip}{0pt plus 5cm}void MatrixInvRotate (
+\begin{DoxyParamCaption}
+\item[{GLfloat}]{ mtxin\mbox{[}16\mbox{]}, }
+\item[{GLfloat}]{ mtxout\mbox{[}16\mbox{]}}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_acc9dfde2f9ac947845d788f38a3aa2d6}
+\hypertarget{main_8cpp_a649c1683bbe237a03f4d2eba07fb6535}{
+\index{main.cpp@{main.cpp}!MatrixMultiply@{MatrixMultiply}}
+\index{MatrixMultiply@{MatrixMultiply}!main.cpp@{main.cpp}}
+\subsubsection[{MatrixMultiply}]{\setlength{\rightskip}{0pt plus 5cm}void MatrixMultiply (
+\begin{DoxyParamCaption}
+\item[{GLfloat}]{ mtxin1\mbox{[}16\mbox{]}, }
+\item[{GLfloat}]{ mtxin2\mbox{[}16\mbox{]}, }
+\item[{GLfloat}]{ mtxout\mbox{[}16\mbox{]}}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_a649c1683bbe237a03f4d2eba07fb6535}
+\hypertarget{main_8cpp_acb276731cc4a45780dccae74662c25b9}{
+\index{main.cpp@{main.cpp}!MatVecMultiply@{MatVecMultiply}}
+\index{MatVecMultiply@{MatVecMultiply}!main.cpp@{main.cpp}}
+\subsubsection[{MatVecMultiply}]{\setlength{\rightskip}{0pt plus 5cm}void MatVecMultiply (
+\begin{DoxyParamCaption}
+\item[{GLfloat}]{ pModelViewMatrixInv\mbox{[}16\mbox{]}, }
+\item[{GLfloat}]{ pViewVector\mbox{[}4\mbox{]}}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_acb276731cc4a45780dccae74662c25b9}
+\hypertarget{main_8cpp_ac78df2ede099ccb50e0fed7b0352c24c}{
+\index{main.cpp@{main.cpp}!MoveMouse@{MoveMouse}}
+\index{MoveMouse@{MoveMouse}!main.cpp@{main.cpp}}
+\subsubsection[{MoveMouse}]{\setlength{\rightskip}{0pt plus 5cm}void MoveMouse (
+\begin{DoxyParamCaption}
+\item[{int}]{ x, }
+\item[{int}]{ y}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_ac78df2ede099ccb50e0fed7b0352c24c}
+\hypertarget{main_8cpp_a405a8d38149cfa466629a23e9a3e2289}{
+\index{main.cpp@{main.cpp}!MoveMouseBotaoPressionado@{MoveMouseBotaoPressionado}}
+\index{MoveMouseBotaoPressionado@{MoveMouseBotaoPressionado}!main.cpp@{main.cpp}}
+\subsubsection[{MoveMouseBotaoPressionado}]{\setlength{\rightskip}{0pt plus 5cm}void MoveMouseBotaoPressionado (
+\begin{DoxyParamCaption}
+\item[{int}]{ x, }
+\item[{int}]{ y}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_a405a8d38149cfa466629a23e9a3e2289}
+\hypertarget{main_8cpp_a760559a38be92bbe5c2679947c05c27f}{
+\index{main.cpp@{main.cpp}!readRAW@{readRAW}}
+\index{readRAW@{readRAW}!main.cpp@{main.cpp}}
+\subsubsection[{readRAW}]{\setlength{\rightskip}{0pt plus 5cm}GLubyte $\ast$ readRAW (
+\begin{DoxyParamCaption}
+\item[{int}]{ argc, }
+\item[{char $\ast$$\ast$}]{ argv}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_a760559a38be92bbe5c2679947c05c27f}
+\hypertarget{main_8cpp_aaeedc5c1c90eff3a2950f1a2dbbdac6c}{
+\index{main.cpp@{main.cpp}!ReSizeGLScene@{ReSizeGLScene}}
+\index{ReSizeGLScene@{ReSizeGLScene}!main.cpp@{main.cpp}}
+\subsubsection[{ReSizeGLScene}]{\setlength{\rightskip}{0pt plus 5cm}void ReSizeGLScene (
+\begin{DoxyParamCaption}
+\item[{int}]{ Width, }
+\item[{int}]{ Height}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_aaeedc5c1c90eff3a2950f1a2dbbdac6c}
+\hypertarget{main_8cpp_a2b7840409c0a76bb5c8f7fc5fec06334}{
+\index{main.cpp@{main.cpp}!VectorRotate@{VectorRotate}}
+\index{VectorRotate@{VectorRotate}!main.cpp@{main.cpp}}
+\subsubsection[{VectorRotate}]{\setlength{\rightskip}{0pt plus 5cm}void VectorRotate (
+\begin{DoxyParamCaption}
+\item[{const GLfloat}]{ vin\mbox{[}4\mbox{]}, }
+\item[{const GLfloat}]{ mtx\mbox{[}16\mbox{]}, }
+\item[{GLfloat}]{ vout\mbox{[}4\mbox{]}}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_a2b7840409c0a76bb5c8f7fc5fec06334}
+
+
+\subsection{Variable Documentation}
+\hypertarget{main_8cpp_a3dd06e6b317cb120e6b797d3a04fad55}{
+\index{main.cpp@{main.cpp}!btStatus@{btStatus}}
+\index{btStatus@{btStatus}!main.cpp@{main.cpp}}
+\subsubsection[{btStatus}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf btStatus} = 0}}
+\label{main_8cpp_a3dd06e6b317cb120e6b797d3a04fad55}
+\hypertarget{main_8cpp_ad31494204fdd3d2cb30faba527cfb9fa}{
+\index{main.cpp@{main.cpp}!d\_\-height@{d\_\-height}}
+\index{d\_\-height@{d\_\-height}!main.cpp@{main.cpp}}
+\subsubsection[{d\_\-height}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf d\_\-height}}}
+\label{main_8cpp_ad31494204fdd3d2cb30faba527cfb9fa}
+\hypertarget{main_8cpp_a5219b16b08f8d31832acf7154e871b4e}{
+\index{main.cpp@{main.cpp}!d\_\-nsli@{d\_\-nsli}}
+\index{d\_\-nsli@{d\_\-nsli}!main.cpp@{main.cpp}}
+\subsubsection[{d\_\-nsli}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf d\_\-nsli}}}
+\label{main_8cpp_a5219b16b08f8d31832acf7154e871b4e}
+\hypertarget{main_8cpp_a27488496a0017a251d120bce74da2e43}{
+\index{main.cpp@{main.cpp}!d\_\-slices@{d\_\-slices}}
+\index{d\_\-slices@{d\_\-slices}!main.cpp@{main.cpp}}
+\subsubsection[{d\_\-slices}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf d\_\-slices}}}
+\label{main_8cpp_a27488496a0017a251d120bce74da2e43}
+\hypertarget{main_8cpp_ad49412925c79a9894ea598530ea39b00}{
+\index{main.cpp@{main.cpp}!d\_\-width@{d\_\-width}}
+\index{d\_\-width@{d\_\-width}!main.cpp@{main.cpp}}
+\subsubsection[{d\_\-width}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf d\_\-width}}}
+\label{main_8cpp_ad49412925c79a9894ea598530ea39b00}
+\hypertarget{main_8cpp_a93c2ee41abd3c06ade37dd87e48a8a33}{
+\index{main.cpp@{main.cpp}!high\_\-shininess@{high\_\-shininess}}
+\index{high\_\-shininess@{high\_\-shininess}!main.cpp@{main.cpp}}
+\subsubsection[{high\_\-shininess}]{\setlength{\rightskip}{0pt plus 5cm}const GLfloat {\bf high\_\-shininess}\mbox{[}$\,$\mbox{]} = \{ 100.0f \}}}
+\label{main_8cpp_a93c2ee41abd3c06ade37dd87e48a8a33}
+\hypertarget{main_8cpp_a35b44e70b5291d4c6a2ddfa0ffe062e8}{
+\index{main.cpp@{main.cpp}!light\_\-ambient@{light\_\-ambient}}
+\index{light\_\-ambient@{light\_\-ambient}!main.cpp@{main.cpp}}
+\subsubsection[{light\_\-ambient}]{\setlength{\rightskip}{0pt plus 5cm}const GLfloat {\bf light\_\-ambient}\mbox{[}$\,$\mbox{]} = \{ 0.0f, 0.0f, 0.0f, 1.0f \}}}
+\label{main_8cpp_a35b44e70b5291d4c6a2ddfa0ffe062e8}
+\hypertarget{main_8cpp_ad0bc3e49164c7d5d01dd6b4a0d0fff25}{
+\index{main.cpp@{main.cpp}!light\_\-diffuse@{light\_\-diffuse}}
+\index{light\_\-diffuse@{light\_\-diffuse}!main.cpp@{main.cpp}}
+\subsubsection[{light\_\-diffuse}]{\setlength{\rightskip}{0pt plus 5cm}const GLfloat {\bf light\_\-diffuse}\mbox{[}$\,$\mbox{]} = \{ 1.0f, 1.0f, 1.0f, 1.0f \}}}
+\label{main_8cpp_ad0bc3e49164c7d5d01dd6b4a0d0fff25}
+\hypertarget{main_8cpp_aea3c4afba5fcc8b77067671d396b577b}{
+\index{main.cpp@{main.cpp}!light\_\-position@{light\_\-position}}
+\index{light\_\-position@{light\_\-position}!main.cpp@{main.cpp}}
+\subsubsection[{light\_\-position}]{\setlength{\rightskip}{0pt plus 5cm}const GLfloat {\bf light\_\-position}\mbox{[}$\,$\mbox{]} = \{ 2.0f, 5.0f, 5.0f, 0.0f \}}}
+\label{main_8cpp_aea3c4afba5fcc8b77067671d396b577b}
+\hypertarget{main_8cpp_a48537988fd7a403709b0a7ffcbebac77}{
+\index{main.cpp@{main.cpp}!light\_\-specular@{light\_\-specular}}
+\index{light\_\-specular@{light\_\-specular}!main.cpp@{main.cpp}}
+\subsubsection[{light\_\-specular}]{\setlength{\rightskip}{0pt plus 5cm}const GLfloat {\bf light\_\-specular}\mbox{[}$\,$\mbox{]} = \{ 1.0f, 1.0f, 1.0f, 1.0f \}}}
+\label{main_8cpp_a48537988fd7a403709b0a7ffcbebac77}
+\hypertarget{main_8cpp_a68147cce833d98b698183d68629e38d5}{
+\index{main.cpp@{main.cpp}!m@{m}}
+\index{m@{m}!main.cpp@{main.cpp}}
+\subsubsection[{m}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf m}\mbox{[}16\mbox{]}}}
+\label{main_8cpp_a68147cce833d98b698183d68629e38d5}
+\hypertarget{main_8cpp_adfbd08e06a4a9fc898f6a3b9797316d8}{
+\index{main.cpp@{main.cpp}!mat\_\-ambient@{mat\_\-ambient}}
+\index{mat\_\-ambient@{mat\_\-ambient}!main.cpp@{main.cpp}}
+\subsubsection[{mat\_\-ambient}]{\setlength{\rightskip}{0pt plus 5cm}const GLfloat {\bf mat\_\-ambient}\mbox{[}$\,$\mbox{]} = \{ 0.7f, 0.7f, 0.7f, 1.0f \}}}
+\label{main_8cpp_adfbd08e06a4a9fc898f6a3b9797316d8}
+\hypertarget{main_8cpp_aabea2510d410c6e2c8470a262cdabada}{
+\index{main.cpp@{main.cpp}!mat\_\-diffuse@{mat\_\-diffuse}}
+\index{mat\_\-diffuse@{mat\_\-diffuse}!main.cpp@{main.cpp}}
+\subsubsection[{mat\_\-diffuse}]{\setlength{\rightskip}{0pt plus 5cm}const GLfloat {\bf mat\_\-diffuse}\mbox{[}$\,$\mbox{]} = \{ 0.8f, 0.8f, 0.8f, 1.0f \}}}
+\label{main_8cpp_aabea2510d410c6e2c8470a262cdabada}
+\hypertarget{main_8cpp_aa024b50a93b02ad54fc180d4729d8735}{
+\index{main.cpp@{main.cpp}!mat\_\-specular@{mat\_\-specular}}
+\index{mat\_\-specular@{mat\_\-specular}!main.cpp@{main.cpp}}
+\subsubsection[{mat\_\-specular}]{\setlength{\rightskip}{0pt plus 5cm}const GLfloat {\bf mat\_\-specular}\mbox{[}$\,$\mbox{]} = \{ 1.0f, 1.0f, 1.0f, 1.0f \}}}
+\label{main_8cpp_aa024b50a93b02ad54fc180d4729d8735}
+\hypertarget{main_8cpp_ab228548b8f0e557584ad70ed635cda21}{
+\index{main.cpp@{main.cpp}!oldXp@{oldXp}}
+\index{oldXp@{oldXp}!main.cpp@{main.cpp}}
+\subsubsection[{oldXp}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf oldXp}}}
+\label{main_8cpp_ab228548b8f0e557584ad70ed635cda21}
+\hypertarget{main_8cpp_aab7251e1d315280864284925e422c596}{
+\index{main.cpp@{main.cpp}!oldXr@{oldXr}}
+\index{oldXr@{oldXr}!main.cpp@{main.cpp}}
+\subsubsection[{oldXr}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf oldXr}}}
+\label{main_8cpp_aab7251e1d315280864284925e422c596}
+\hypertarget{main_8cpp_a229dbe236b483bd963c4d71cbfae9b3d}{
+\index{main.cpp@{main.cpp}!oldYp@{oldYp}}
+\index{oldYp@{oldYp}!main.cpp@{main.cpp}}
+\subsubsection[{oldYp}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf oldYp}}}
+\label{main_8cpp_a229dbe236b483bd963c4d71cbfae9b3d}
+\hypertarget{main_8cpp_ac56c3006d83e01536c81ea235ff90555}{
+\index{main.cpp@{main.cpp}!oldYr@{oldYr}}
+\index{oldYr@{oldYr}!main.cpp@{main.cpp}}
+\subsubsection[{oldYr}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf oldYr}}}
+\label{main_8cpp_ac56c3006d83e01536c81ea235ff90555}
+\hypertarget{main_8cpp_ae718f8eaf729b3ea8131e8f424724273}{
+\index{main.cpp@{main.cpp}!pcube@{pcube}}
+\index{pcube@{pcube}!main.cpp@{main.cpp}}
+\subsubsection[{pcube}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf pcube} = -\/2.0f}}
+\label{main_8cpp_ae718f8eaf729b3ea8131e8f424724273}
+\hypertarget{main_8cpp_aa50a364932b2a3a061b6836ac880b4e9}{
+\index{main.cpp@{main.cpp}!raw@{raw}}
+\index{raw@{raw}!main.cpp@{main.cpp}}
+\subsubsection[{raw}]{\setlength{\rightskip}{0pt plus 5cm}GLubyte$\ast$ {\bf raw}}}
+\label{main_8cpp_aa50a364932b2a3a061b6836ac880b4e9}
+\hypertarget{main_8cpp_a57fa3d20fccdbeabada817659e0ca5ce}{
+\index{main.cpp@{main.cpp}!rcubex@{rcubex}}
+\index{rcubex@{rcubex}!main.cpp@{main.cpp}}
+\subsubsection[{rcubex}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf rcubex} = 0.0f}}
+\label{main_8cpp_a57fa3d20fccdbeabada817659e0ca5ce}
+\hypertarget{main_8cpp_aff9022eb87d86faf8f912b302c8a794b}{
+\index{main.cpp@{main.cpp}!rcubey@{rcubey}}
+\index{rcubey@{rcubey}!main.cpp@{main.cpp}}
+\subsubsection[{rcubey}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf rcubey} = 0.0f}}
+\label{main_8cpp_aff9022eb87d86faf8f912b302c8a794b}
+\hypertarget{main_8cpp_a34fb96d3e60f782c72de5ac6b915032a}{
+\index{main.cpp@{main.cpp}!stick@{stick}}
+\index{stick@{stick}!main.cpp@{main.cpp}}
+\subsubsection[{stick}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf stick} = 1}}
+\label{main_8cpp_a34fb96d3e60f782c72de5ac6b915032a}
+\hypertarget{main_8cpp_a27fdfeb2d1da1ed1e213af6eb550b24f}{
+\index{main.cpp@{main.cpp}!texData@{texData}}
+\index{texData@{texData}!main.cpp@{main.cpp}}
+\subsubsection[{texData}]{\setlength{\rightskip}{0pt plus 5cm}GLubyte$\ast$ {\bf texData}}}
+\label{main_8cpp_a27fdfeb2d1da1ed1e213af6eb550b24f}
+\hypertarget{main_8cpp_a73c15322164b57239dd1b324846a52cb}{
+\index{main.cpp@{main.cpp}!texdepth@{texdepth}}
+\index{texdepth@{texdepth}!main.cpp@{main.cpp}}
+\subsubsection[{texdepth}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf texdepth} = 64}}
+\label{main_8cpp_a73c15322164b57239dd1b324846a52cb}
+\hypertarget{main_8cpp_a7dc541ce631d2e1d5d03a494cca2fbfd}{
+\index{main.cpp@{main.cpp}!texheight@{texheight}}
+\index{texheight@{texheight}!main.cpp@{main.cpp}}
+\subsubsection[{texheight}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf texheight} = 64}}
+\label{main_8cpp_a7dc541ce631d2e1d5d03a494cca2fbfd}
+\hypertarget{main_8cpp_a169b9f06ff313a85f57f45c8bb9a2159}{
+\index{main.cpp@{main.cpp}!texid@{texid}}
+\index{texid@{texid}!main.cpp@{main.cpp}}
+\subsubsection[{texid}]{\setlength{\rightskip}{0pt plus 5cm}GLuint {\bf texid}}}
+\label{main_8cpp_a169b9f06ff313a85f57f45c8bb9a2159}
+\hypertarget{main_8cpp_ae2482823e7d14f18dc9dc919f8c46802}{
+\index{main.cpp@{main.cpp}!texwidth@{texwidth}}
+\index{texwidth@{texwidth}!main.cpp@{main.cpp}}
+\subsubsection[{texwidth}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf texwidth} = 64}}
+\label{main_8cpp_ae2482823e7d14f18dc9dc919f8c46802}
+\hypertarget{main_8cpp_a9d74d90913cc3f52108fddb8a13a1fbe}{
+\index{main.cpp@{main.cpp}!theVolume@{theVolume}}
+\index{theVolume@{theVolume}!main.cpp@{main.cpp}}
+\subsubsection[{theVolume}]{\setlength{\rightskip}{0pt plus 5cm}GLuint {\bf theVolume}\mbox{[}6\mbox{]}}}
+\label{main_8cpp_a9d74d90913cc3f52108fddb8a13a1fbe}
+\hypertarget{main_8cpp_a44c17547fc485a6add8f6f233463c5b7}{
+\index{main.cpp@{main.cpp}!tick@{tick}}
+\index{tick@{tick}!main.cpp@{main.cpp}}
+\subsubsection[{tick}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf tick} = 0}}
+\label{main_8cpp_a44c17547fc485a6add8f6f233463c5b7}
+\hypertarget{main_8cpp_a3a49e9bae6aba7d0daec651613ab841c}{
+\index{main.cpp@{main.cpp}!tk@{tk}}
+\index{tk@{tk}!main.cpp@{main.cpp}}
+\subsubsection[{tk}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf tk}}}
+\label{main_8cpp_a3a49e9bae6aba7d0daec651613ab841c}
+\hypertarget{main_8cpp_ab630011d522b1305d06b1abf2ba866fe}{
+\index{main.cpp@{main.cpp}!TproxyGeometry@{TproxyGeometry}}
+\index{TproxyGeometry@{TproxyGeometry}!main.cpp@{main.cpp}}
+\subsubsection[{TproxyGeometry}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf TproxyGeometry} = 0}}
+\label{main_8cpp_ab630011d522b1305d06b1abf2ba866fe}
+\hypertarget{main_8cpp_a65ba7a0b8164c01b33d92b9ab0f2af03}{
+\index{main.cpp@{main.cpp}!window@{window}}
+\index{window@{window}!main.cpp@{main.cpp}}
+\subsubsection[{window}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf window}}}
+\label{main_8cpp_a65ba7a0b8164c01b33d92b9ab0f2af03}
+\hypertarget{main_8cpp_a092dc054ffbc72785c6c416eac5ba6c2}{
+\index{main.cpp@{main.cpp}!winHeight@{winHeight}}
+\index{winHeight@{winHeight}!main.cpp@{main.cpp}}
+\subsubsection[{winHeight}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf winHeight}}}
+\label{main_8cpp_a092dc054ffbc72785c6c416eac5ba6c2}
+\hypertarget{main_8cpp_a51aeec8523eeaee596e1f8f73d9b0233}{
+\index{main.cpp@{main.cpp}!winWidth@{winWidth}}
+\index{winWidth@{winWidth}!main.cpp@{main.cpp}}
+\subsubsection[{winWidth}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf winWidth}}}
+\label{main_8cpp_a51aeec8523eeaee596e1f8f73d9b0233}

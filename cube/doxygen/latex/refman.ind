@@ -1,0 +1,345 @@
+\begin{theindex}
+
+  \item {/home/aahmgbr/Dropbox/unicamp/disciplinas/IA369/MeusProgramas/workspace/cube/src/glsl.cpp}, 
+		\hyperpage{7}
+  \item {/home/aahmgbr/Dropbox/unicamp/disciplinas/IA369/MeusProgramas/workspace/cube/src/glsl.h}, 
+		\hyperpage{8}
+  \item {/home/aahmgbr/Dropbox/unicamp/disciplinas/IA369/MeusProgramas/workspace/cube/src/main.cpp}, 
+		\hyperpage{9}
+  \item {/home/aahmgbr/Dropbox/unicamp/disciplinas/IA369/MeusProgramas/workspace/cube/src/transf.cpp}, 
+		\hyperpage{13}
+  \item {/home/aahmgbr/Dropbox/unicamp/disciplinas/IA369/MeusProgramas/workspace/cube/src/transf.h}, 
+		\hyperpage{15}
+
+  \indexspace
+
+  \item {abs}
+    \subitem {main.cpp}, \hyperpage{11}
+  \item {alfa}
+    \subitem {colorMap\_\discretionary {-}{}{}item}, \hyperpage{5}
+
+  \indexspace
+
+  \item {b}
+    \subitem {colorMap\_\discretionary {-}{}{}item}, \hyperpage{5}
+  \item {btStatus}
+    \subitem {main.cpp}, \hyperpage{13}
+
+  \indexspace
+
+  \item {clamp}
+    \subitem {main.cpp}, \hyperpage{11}
+  \item {COLORMAP}
+    \subitem {transf.h}, \hyperpage{15}
+  \item {COLORMAP\_\discretionary {-}{}{}ITEM}
+    \subitem {transf.h}, \hyperpage{15}
+  \item {colorMap\_\discretionary {-}{}{}item}, \hyperpage{5}
+    \subitem {alfa}, \hyperpage{5}
+    \subitem {b}, \hyperpage{5}
+    \subitem {g}, \hyperpage{5}
+    \subitem {r}, \hyperpage{5}
+  \item {colorMapRead}
+    \subitem {transf.cpp}, \hyperpage{14}
+    \subitem {transf.h}, \hyperpage{15}
+  \item {colorMapWrite}
+    \subitem {transf.cpp}, \hyperpage{14}
+    \subitem {transf.h}, \hyperpage{16}
+  \item {createPreintegrationTable}
+    \subitem {main.cpp}, \hyperpage{11}
+
+  \indexspace
+
+  \item {d\_\discretionary {-}{}{}height}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {d\_\discretionary {-}{}{}nsli}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {d\_\discretionary {-}{}{}slices}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {d\_\discretionary {-}{}{}width}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {DrawCube}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {DrawCube1}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {DrawGLScene}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {DrawSliceStack}
+    \subitem {main.cpp}, \hyperpage{13}
+
+  \indexspace
+
+  \item {ESCAPE}
+    \subitem {main.cpp}, \hyperpage{11}
+
+  \indexspace
+
+  \item {f}
+    \subitem {glsl.cpp}, \hyperpage{8}
+  \item {f2}
+    \subitem {glsl.cpp}, \hyperpage{8}
+  \item {FindAbsMaximum}
+    \subitem {main.cpp}, \hyperpage{13}
+
+  \indexspace
+
+  \item {g}
+    \subitem {colorMap\_\discretionary {-}{}{}item}, \hyperpage{5}
+    \subitem {glsl.cpp}, \hyperpage{8}
+  \item {GerenciaMouse}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {gh}
+    \subitem {glsl.cpp}, \hyperpage{8}
+  \item {glsl.cpp}
+    \subitem {f}, \hyperpage{8}
+    \subitem {f2}, \hyperpage{8}
+    \subitem {g}, \hyperpage{8}
+    \subitem {gh}, \hyperpage{8}
+    \subitem {gw}, \hyperpage{8}
+    \subitem {p}, \hyperpage{8}
+    \subitem {printProgramInfoLog}, \hyperpage{8}
+    \subitem {printShaderInfoLog}, \hyperpage{8}
+    \subitem {setShaders}, \hyperpage{8}
+    \subitem {textFileRead}, \hyperpage{8}
+    \subitem {textFileWrite}, \hyperpage{8}
+    \subitem {v}, \hyperpage{8}
+  \item {glsl.h}
+    \subitem {printProgramInfoLog}, \hyperpage{9}
+    \subitem {printShaderInfoLog}, \hyperpage{9}
+    \subitem {setShaders}, \hyperpage{9}
+    \subitem {textFileRead}, \hyperpage{9}
+    \subitem {textFileWrite}, \hyperpage{9}
+  \item {gw}
+    \subitem {glsl.cpp}, \hyperpage{8}
+
+  \indexspace
+
+  \item {high\_\discretionary {-}{}{}shininess}
+    \subitem {main.cpp}, \hyperpage{13}
+
+  \indexspace
+
+  \item {InitDraw}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {InitGL}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {InitTexture}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {InvertMatrix}
+    \subitem {main.cpp}, \hyperpage{13}
+
+  \indexspace
+
+  \item {keyPressed}
+    \subitem {main.cpp}, \hyperpage{13}
+
+  \indexspace
+
+  \item {light\_\discretionary {-}{}{}ambient}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {light\_\discretionary {-}{}{}diffuse}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {light\_\discretionary {-}{}{}position}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {light\_\discretionary {-}{}{}specular}
+    \subitem {main.cpp}, \hyperpage{13}
+
+  \indexspace
+
+  \item {m}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {main}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {main.cpp}
+    \subitem {abs}, \hyperpage{11}
+    \subitem {btStatus}, \hyperpage{13}
+    \subitem {clamp}, \hyperpage{11}
+    \subitem {createPreintegrationTable}, \hyperpage{11}
+    \subitem {d\_\discretionary {-}{}{}height}, \hyperpage{13}
+    \subitem {d\_\discretionary {-}{}{}nsli}, \hyperpage{13}
+    \subitem {d\_\discretionary {-}{}{}slices}, \hyperpage{13}
+    \subitem {d\_\discretionary {-}{}{}width}, \hyperpage{13}
+    \subitem {DrawCube}, \hyperpage{13}
+    \subitem {DrawCube1}, \hyperpage{13}
+    \subitem {DrawGLScene}, \hyperpage{13}
+    \subitem {DrawSliceStack}, \hyperpage{13}
+    \subitem {ESCAPE}, \hyperpage{11}
+    \subitem {FindAbsMaximum}, \hyperpage{13}
+    \subitem {GerenciaMouse}, \hyperpage{13}
+    \subitem {high\_\discretionary {-}{}{}shininess}, \hyperpage{13}
+    \subitem {InitDraw}, \hyperpage{13}
+    \subitem {InitGL}, \hyperpage{13}
+    \subitem {InitTexture}, \hyperpage{13}
+    \subitem {InvertMatrix}, \hyperpage{13}
+    \subitem {keyPressed}, \hyperpage{13}
+    \subitem {light\_\discretionary {-}{}{}ambient}, \hyperpage{13}
+    \subitem {light\_\discretionary {-}{}{}diffuse}, \hyperpage{13}
+    \subitem {light\_\discretionary {-}{}{}position}, \hyperpage{13}
+    \subitem {light\_\discretionary {-}{}{}specular}, \hyperpage{13}
+    \subitem {m}, \hyperpage{13}
+    \subitem {main}, \hyperpage{13}
+    \subitem {mat\_\discretionary {-}{}{}ambient}, \hyperpage{13}
+    \subitem {mat\_\discretionary {-}{}{}diffuse}, \hyperpage{13}
+    \subitem {mat\_\discretionary {-}{}{}specular}, \hyperpage{13}
+    \subitem {MatrixInvRotate}, \hyperpage{13}
+    \subitem {MatrixMultiply}, \hyperpage{13}
+    \subitem {MatVecMultiply}, \hyperpage{13}
+    \subitem {MoveMouse}, \hyperpage{13}
+    \subitem {MoveMouseBotaoPressionado}, \hyperpage{13}
+    \subitem {oldXp}, \hyperpage{13}
+    \subitem {oldXr}, \hyperpage{13}
+    \subitem {oldYp}, \hyperpage{13}
+    \subitem {oldYr}, \hyperpage{13}
+    \subitem {pcube}, \hyperpage{13}
+    \subitem {raw}, \hyperpage{13}
+    \subitem {rcubex}, \hyperpage{13}
+    \subitem {rcubey}, \hyperpage{13}
+    \subitem {readRAW}, \hyperpage{13}
+    \subitem {ReSizeGLScene}, \hyperpage{13}
+    \subitem {stick}, \hyperpage{13}
+    \subitem {texData}, \hyperpage{13}
+    \subitem {texdepth}, \hyperpage{13}
+    \subitem {texheight}, \hyperpage{13}
+    \subitem {texid}, \hyperpage{13}
+    \subitem {texwidth}, \hyperpage{13}
+    \subitem {theVolume}, \hyperpage{13}
+    \subitem {tick}, \hyperpage{13}
+    \subitem {tk}, \hyperpage{13}
+    \subitem {TproxyGeometry}, \hyperpage{13}
+    \subitem {VectorRotate}, \hyperpage{13}
+    \subitem {window}, \hyperpage{13}
+    \subitem {winHeight}, \hyperpage{13}
+    \subitem {winWidth}, \hyperpage{13}
+    \subitem {X}, \hyperpage{11}
+    \subitem {Y}, \hyperpage{11}
+    \subitem {Z}, \hyperpage{11}
+  \item {mat\_\discretionary {-}{}{}ambient}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {mat\_\discretionary {-}{}{}diffuse}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {mat\_\discretionary {-}{}{}specular}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {MatrixInvRotate}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {MatrixMultiply}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {MatVecMultiply}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {MoveMouse}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {MoveMouseBotaoPressionado}
+    \subitem {main.cpp}, \hyperpage{13}
+
+  \indexspace
+
+  \item {oldXp}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {oldXr}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {oldYp}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {oldYr}
+    \subitem {main.cpp}, \hyperpage{13}
+
+  \indexspace
+
+  \item {p}
+    \subitem {glsl.cpp}, \hyperpage{8}
+  \item {pcube}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {printProgramInfoLog}
+    \subitem {glsl.cpp}, \hyperpage{8}
+    \subitem {glsl.h}, \hyperpage{9}
+  \item {printShaderInfoLog}
+    \subitem {glsl.cpp}, \hyperpage{8}
+    \subitem {glsl.h}, \hyperpage{9}
+
+  \indexspace
+
+  \item {r}
+    \subitem {colorMap\_\discretionary {-}{}{}item}, \hyperpage{5}
+  \item {raw}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {rcubex}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {rcubey}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {readRAW}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {ReSizeGLScene}
+    \subitem {main.cpp}, \hyperpage{13}
+
+  \indexspace
+
+  \item {setShaders}
+    \subitem {glsl.cpp}, \hyperpage{8}
+    \subitem {glsl.h}, \hyperpage{9}
+  \item {stick}
+    \subitem {main.cpp}, \hyperpage{13}
+
+  \indexspace
+
+  \item {texData}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {texdepth}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {texheight}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {texid}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {textFileRead}
+    \subitem {glsl.cpp}, \hyperpage{8}
+    \subitem {glsl.h}, \hyperpage{9}
+  \item {textFileWrite}
+    \subitem {glsl.cpp}, \hyperpage{8}
+    \subitem {glsl.h}, \hyperpage{9}
+  \item {texwidth}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {theVolume}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {tick}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {tk}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {TproxyGeometry}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {transf.cpp}
+    \subitem {colorMapRead}, \hyperpage{14}
+    \subitem {colorMapWrite}, \hyperpage{14}
+  \item {transf.h}
+    \subitem {COLORMAP}, \hyperpage{15}
+    \subitem {COLORMAP\_\discretionary {-}{}{}ITEM}, \hyperpage{15}
+    \subitem {colorMapRead}, \hyperpage{15}
+    \subitem {colorMapWrite}, \hyperpage{16}
+
+  \indexspace
+
+  \item {v}
+    \subitem {glsl.cpp}, \hyperpage{8}
+  \item {VectorRotate}
+    \subitem {main.cpp}, \hyperpage{13}
+
+  \indexspace
+
+  \item {window}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {winHeight}
+    \subitem {main.cpp}, \hyperpage{13}
+  \item {winWidth}
+    \subitem {main.cpp}, \hyperpage{13}
+
+  \indexspace
+
+  \item {X}
+    \subitem {main.cpp}, \hyperpage{11}
+
+  \indexspace
+
+  \item {Y}
+    \subitem {main.cpp}, \hyperpage{11}
+
+  \indexspace
+
+  \item {Z}
+    \subitem {main.cpp}, \hyperpage{11}
+
+\end{theindex}

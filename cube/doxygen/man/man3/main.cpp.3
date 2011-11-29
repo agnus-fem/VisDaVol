@@ -1,0 +1,324 @@
+.TH "/home/aahmgbr/Dropbox/unicamp/disciplinas/IA369/MeusProgramas/workspace/cube/src/main.cpp" 3 "Mon Nov 28 2011" "Version V1.04" "VisDaVol" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/aahmgbr/Dropbox/unicamp/disciplinas/IA369/MeusProgramas/workspace/cube/src/main.cpp \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <unistd.h>\fP
+.br
+\fC#include <stdio.h>\fP
+.br
+\fC#include <string.h>\fP
+.br
+\fC#include <math.h>\fP
+.br
+\fC#include 'glsl.h'\fP
+.br
+\fC#include 'transf.h'\fP
+.br
+
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBX\fP   0"
+.br
+.ti -1c
+.RI "#define \fBY\fP   1"
+.br
+.ti -1c
+.RI "#define \fBZ\fP   2"
+.br
+.ti -1c
+.RI "#define \fBESCAPE\fP   27"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "GLubyte * \fBreadRAW\fP (int argc, char **argv)"
+.br
+.ti -1c
+.RI "GLubyte \fBclamp\fP (double value, const int min, const int max)"
+.br
+.RI "\fIEsta função faz com que um valor fique restrito dentro de uma faixa de valores definida por um valor mínimo e máximo. \fP"
+.ti -1c
+.RI "void \fBcreatePreintegrationTable\fP (GLubyte *Table)"
+.br
+.ti -1c
+.RI "void \fBDrawCube1\fP ()"
+.br
+.ti -1c
+.RI "float \fBabs\fP (float x)"
+.br
+.ti -1c
+.RI "int \fBFindAbsMaximum\fP (GLfloat pViewVector[4])"
+.br
+.ti -1c
+.RI "void \fBMatrixMultiply\fP (GLfloat mtxin1[16], GLfloat mtxin2[16], GLfloat mtxout[16])"
+.br
+.ti -1c
+.RI "void \fBMatrixInvRotate\fP (GLfloat mtxin[16], GLfloat mtxout[16])"
+.br
+.ti -1c
+.RI "void \fBVectorRotate\fP (const GLfloat vin[4], const GLfloat mtx[16], GLfloat vout[4])"
+.br
+.ti -1c
+.RI "void \fBInvertMatrix\fP (GLfloat mtxin[16], GLfloat mtxout[16])"
+.br
+.ti -1c
+.RI "void \fBDrawSliceStack\fP (int proxyGeometry)"
+.br
+.ti -1c
+.RI "void \fBMatVecMultiply\fP (GLfloat pModelViewMatrixInv[16], GLfloat pViewVector[4])"
+.br
+.ti -1c
+.RI "void \fBDrawCube\fP ()"
+.br
+.ti -1c
+.RI "void \fBInitTexture\fP ()"
+.br
+.ti -1c
+.RI "void \fBInitDraw\fP (void)"
+.br
+.ti -1c
+.RI "void \fBInitGL\fP (int Width, int Height)"
+.br
+.ti -1c
+.RI "void \fBReSizeGLScene\fP (int Width, int Height)"
+.br
+.ti -1c
+.RI "void \fBDrawGLScene\fP ()"
+.br
+.ti -1c
+.RI "void \fBkeyPressed\fP (unsigned char key, int x, int y)"
+.br
+.ti -1c
+.RI "void \fBMoveMouseBotaoPressionado\fP (int x, int y)"
+.br
+.ti -1c
+.RI "void \fBMoveMouse\fP (int x, int y)"
+.br
+.ti -1c
+.RI "void \fBGerenciaMouse\fP (int button, int state, int x, int y)"
+.br
+.ti -1c
+.RI "int \fBmain\fP (int argc, char **argv)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "int \fBwindow\fP"
+.br
+.ti -1c
+.RI "float \fBrcubex\fP = 0.0f"
+.br
+.ti -1c
+.RI "float \fBrcubey\fP = 0.0f"
+.br
+.ti -1c
+.RI "float \fBpcube\fP = -2.0f"
+.br
+.ti -1c
+.RI "char \fBbtStatus\fP = 0"
+.br
+.ti -1c
+.RI "GLuint \fBtexid\fP"
+.br
+.ti -1c
+.RI "int \fBtexwidth\fP = 64"
+.br
+.ti -1c
+.RI "int \fBtexheight\fP = 64"
+.br
+.ti -1c
+.RI "int \fBtexdepth\fP = 64"
+.br
+.ti -1c
+.RI "float \fBtick\fP = 0"
+.br
+.ti -1c
+.RI "float \fBstick\fP = 1"
+.br
+.ti -1c
+.RI "GLubyte * \fBtexData\fP"
+.br
+.ti -1c
+.RI "int \fBd_width\fP"
+.br
+.ti -1c
+.RI "int \fBd_height\fP"
+.br
+.ti -1c
+.RI "int \fBd_slices\fP"
+.br
+.ti -1c
+.RI "int \fBd_nsli\fP"
+.br
+.ti -1c
+.RI "GLubyte * \fBraw\fP"
+.br
+.ti -1c
+.RI "const GLfloat \fBlight_ambient\fP [] = { 0.0f, 0.0f, 0.0f, 1.0f }"
+.br
+.ti -1c
+.RI "const GLfloat \fBlight_diffuse\fP [] = { 1.0f, 1.0f, 1.0f, 1.0f }"
+.br
+.ti -1c
+.RI "const GLfloat \fBlight_specular\fP [] = { 1.0f, 1.0f, 1.0f, 1.0f }"
+.br
+.ti -1c
+.RI "const GLfloat \fBlight_position\fP [] = { 2.0f, 5.0f, 5.0f, 0.0f }"
+.br
+.ti -1c
+.RI "const GLfloat \fBmat_ambient\fP [] = { 0.7f, 0.7f, 0.7f, 1.0f }"
+.br
+.ti -1c
+.RI "const GLfloat \fBmat_diffuse\fP [] = { 0.8f, 0.8f, 0.8f, 1.0f }"
+.br
+.ti -1c
+.RI "const GLfloat \fBmat_specular\fP [] = { 1.0f, 1.0f, 1.0f, 1.0f }"
+.br
+.ti -1c
+.RI "const GLfloat \fBhigh_shininess\fP [] = { 100.0f }"
+.br
+.ti -1c
+.RI "int \fBwinWidth\fP"
+.br
+.ti -1c
+.RI "int \fBwinHeight\fP"
+.br
+.ti -1c
+.RI "int \fBoldXr\fP"
+.br
+.ti -1c
+.RI "int \fBoldYr\fP"
+.br
+.ti -1c
+.RI "int \fBoldXp\fP"
+.br
+.ti -1c
+.RI "int \fBoldYp\fP"
+.br
+.ti -1c
+.RI "float \fBtk\fP"
+.br
+.ti -1c
+.RI "GLuint \fBtheVolume\fP [6]"
+.br
+.ti -1c
+.RI "float \fBm\fP [16]"
+.br
+.ti -1c
+.RI "int \fBTproxyGeometry\fP = 0"
+.br
+.in -1c
+.SH "Define Documentation"
+.PP 
+.SS "#define ESCAPE   27"
+.SS "#define X   0"
+.SS "#define Y   1"
+.SS "#define Z   2"
+.SH "Function Documentation"
+.PP 
+.SS "float abs (float x)"
+.SS "GLubyte clamp (double value, const int min, const int max)"
+.PP
+Esta função faz com que um valor fique restrito dentro de uma faixa de valores definida por um valor mínimo e máximo. /*! 
+.PP
+\fBAuthor:\fP
+.RS 4
+Agnus A. Horta. 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+30/10/2011 
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+1.0 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvalue\fP um float que representa o valor a ser truncado. 
+.br
+\fImin\fP um inteiro que representa constante que define o valor inicial de truncamento. 
+.br
+\fImax\fP um inteiro que representa constante que define o valor final de truncamento. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+um inteiro. 
+.RE
+.PP
+
+.SS "void createPreintegrationTable (GLubyte * Table)"
+.SS "void DrawCube ()"
+.SS "void DrawCube1 ()"
+.SS "void DrawGLScene ()"
+.SS "void DrawSliceStack (int proxyGeometry)"
+.SS "int FindAbsMaximum (GLfloat pViewVector[4])"
+.SS "void GerenciaMouse (int button, int state, int x, int y)"
+.SS "void InitDraw (void)"
+.SS "void InitGL (int Width, int Height)"
+.SS "void InitTexture ()"
+.SS "void InvertMatrix (GLfloat mtxin[16], GLfloat mtxout[16])"
+.SS "void keyPressed (unsigned char key, int x, int y)"
+.SS "int main (int argc, char ** argv)"
+.SS "void MatrixInvRotate (GLfloat mtxin[16], GLfloat mtxout[16])"
+.SS "void MatrixMultiply (GLfloat mtxin1[16], GLfloat mtxin2[16], GLfloat mtxout[16])"
+.SS "void MatVecMultiply (GLfloat pModelViewMatrixInv[16], GLfloat pViewVector[4])"
+.SS "void MoveMouse (int x, int y)"
+.SS "void MoveMouseBotaoPressionado (int x, int y)"
+.SS "GLubyte * readRAW (int argc, char ** argv)"
+.SS "void ReSizeGLScene (int Width, int Height)"
+.SS "void VectorRotate (const GLfloat vin[4], const GLfloat mtx[16], GLfloat vout[4])"
+.SH "Variable Documentation"
+.PP 
+.SS "char \fBbtStatus\fP = 0"
+.SS "int \fBd_height\fP"
+.SS "int \fBd_nsli\fP"
+.SS "int \fBd_slices\fP"
+.SS "int \fBd_width\fP"
+.SS "const GLfloat \fBhigh_shininess\fP[] = { 100.0f }"
+.SS "const GLfloat \fBlight_ambient\fP[] = { 0.0f, 0.0f, 0.0f, 1.0f }"
+.SS "const GLfloat \fBlight_diffuse\fP[] = { 1.0f, 1.0f, 1.0f, 1.0f }"
+.SS "const GLfloat \fBlight_position\fP[] = { 2.0f, 5.0f, 5.0f, 0.0f }"
+.SS "const GLfloat \fBlight_specular\fP[] = { 1.0f, 1.0f, 1.0f, 1.0f }"
+.SS "float \fBm\fP[16]"
+.SS "const GLfloat \fBmat_ambient\fP[] = { 0.7f, 0.7f, 0.7f, 1.0f }"
+.SS "const GLfloat \fBmat_diffuse\fP[] = { 0.8f, 0.8f, 0.8f, 1.0f }"
+.SS "const GLfloat \fBmat_specular\fP[] = { 1.0f, 1.0f, 1.0f, 1.0f }"
+.SS "int \fBoldXp\fP"
+.SS "int \fBoldXr\fP"
+.SS "int \fBoldYp\fP"
+.SS "int \fBoldYr\fP"
+.SS "float \fBpcube\fP = -2.0f"
+.SS "GLubyte* \fBraw\fP"
+.SS "float \fBrcubex\fP = 0.0f"
+.SS "float \fBrcubey\fP = 0.0f"
+.SS "float \fBstick\fP = 1"
+.SS "GLubyte* \fBtexData\fP"
+.SS "int \fBtexdepth\fP = 64"
+.SS "int \fBtexheight\fP = 64"
+.SS "GLuint \fBtexid\fP"
+.SS "int \fBtexwidth\fP = 64"
+.SS "GLuint \fBtheVolume\fP[6]"
+.SS "float \fBtick\fP = 0"
+.SS "float \fBtk\fP"
+.SS "int \fBTproxyGeometry\fP = 0"
+.SS "int \fBwindow\fP"
+.SS "int \fBwinHeight\fP"
+.SS "int \fBwinWidth\fP"
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VisDaVol from the source code.
