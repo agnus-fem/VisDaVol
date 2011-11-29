@@ -16,7 +16,7 @@
 #include <math.h>
 
 //#include "glsl.h"
-#include <GL/glew.h>
+//#include <GL/glew.h>
 #include <GL/glut.h>    // Header File For The GLUT Library
 #include <GL/gl.h>	// Header File For The OpenGL32 Library
 #include <GL/glu.h>	// Header File For The GLu32 Library
@@ -226,55 +226,7 @@ void DrawCube1()
     glVertex3f( 1.0f, 1.0f, tick );
     glTexCoord3f( 0.0f, 1.0f, tick );
     glVertex3f( 0.0, 1.0f, tick );
-    /*
-       // direita
-       //tick = 0.0f;
-    glNormal3f(-1.0f, 0.0f, 0.0f);
-       glTexCoord3f( tick, 0.0f, 0.0f);
-       glVertex3f( tick, 0.0f, 0.0);
-       glTexCoord3f( tick, 0.0f, 1.0f );
-       glVertex3f( tick, 0.0f, 1.0f );
-       glTexCoord3f( tick, 1.0f, 1.0f );
-       glVertex3f( tick, 1.0f, 1.0f );
-       glTexCoord3f( tick, 1.0f,0.0f );
-       glVertex3f( tick, 1.0f, 0.0f );
 
-           // esquerda
-           //tick = 1.0f;
-           glTexCoord3f( tick, 0.0f, 0.0f);
-           glVertex3f( tick, 0.0f, 0.0);
-           glTexCoord3f( tick, 1.0f,0.0f );
-           glVertex3f( tick, 1.0f, 0.0f );
-           glTexCoord3f( tick, 1.0f, 1.0f );
-           glVertex3f( tick, 1.0f, 1.0f );
-           glTexCoord3f( tick, 0.0f, 1.0f );
-           glVertex3f( tick, 0.0f, 1.0f );
-
-       // inferior
-       //tick = 0.0f;
-       glNormal3f(0.0f, 1.0f, 0.0f);
-       glTexCoord3f(  0.0f,tick, 0.0f);
-       glVertex3f(  0.0f, tick,0.0);
-       glTexCoord3f(  1.0f,tick,0.0f );
-       glVertex3f(  1.0f, tick,0.0f );
-       glTexCoord3f(  1.0f,tick, 1.0f );
-       glVertex3f(  1.0f,tick, 1.0f );
-       glTexCoord3f(  0.0f,tick, 1.0f );
-       glVertex3f(  0.0f,tick, 1.0f );
-
-
-
-           // superior
-           //tick = 1.0f;
-           glTexCoord3f(  0.0f,tick, 0.0f);
-           glVertex3f(  0.0f, tick,0.0);
-           glTexCoord3f(  0.0f,tick, 1.0f );
-           glVertex3f(  0.0f,tick, 1.0f );
-           glTexCoord3f(  1.0f,tick, 1.0f );
-           glVertex3f(  1.0f,tick, 1.0f );
-           glTexCoord3f(  1.0f,tick,0.0f );
-           glVertex3f(  1.0f, tick,0.0f );
-    */
     tick = aux;
 
 
