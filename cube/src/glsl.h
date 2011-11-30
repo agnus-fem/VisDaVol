@@ -14,15 +14,15 @@
 
 #include <GL/glew.h>		//GLEW lib
 #include <GL/glut.h>    // Header File For The GLUT Library
-#include <GL/gl.h>	// Header File For The OpenGL32 Library
-#include <GL/glu.h>	// Header File For The GLu32 Library
+//#include <GL/gl.h>	// Header File For The OpenGL32 Library
+//#include <GL/glu.h>	// Header File For The GLu32 Library
 
 
 char *textFileRead(char *fn);
 int textFileWrite(char *fn, char *s);
 void printShaderInfoLog(GLuint obj);
 void printProgramInfoLog(GLuint obj);
-void setShaders(void);
+void setShaders(GLuint *);
 
 
 #endif /* GLSL_H_ */
