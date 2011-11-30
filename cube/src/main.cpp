@@ -16,8 +16,8 @@
 #include <math.h>
 
 #include "glsl.h"
-//#include <GL/glew.h>
-//#include <GL/glut.h>    // Header File For The GLUT Library
+#include <GL/glew.h>
+#include <GL/glut.h>    // Header File For The GLUT Library
 //#include <GL/gl.h>	// Header File For The OpenGL32 Library
 //#include <GL/glu.h>	// Header File For The GLu32 Library
 
@@ -42,7 +42,7 @@ float pcube = -2.0f;
 char btStatus = 0;
 
 /* Texture */
-GLuint texid;
+GLuint texid_3D, texid_1D;
 int texwidth = 256;
 int texheight = 256;
 int texdepth = 128;
@@ -77,6 +77,8 @@ GLuint theVolume[6];
 float m[16];
 
 int TproxyGeometry = 0;
+
+GLuint ProgramObject;
 
 //! Esta função faz com que um valor fique restrito dentro de uma faixa de valores definida por um valor mínimo e máximo
 /*!
@@ -313,6 +315,9 @@ void DrawSliceStack(int proxyGeometry) {
 	glColor3f(1.0f, 1.0f, 1.0f);
 	glTranslatef(-0.5f, -0.5f, -0.5f);
 
+	//glUseProgram(prog);
+
+
 	glEnable( GL_TEXTURE_3D);
 	glDisable( GL_DEPTH_TEST); // Enable Depth Testing
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); // Enable Alpha Blending (disable alpha testing)
@@ -433,8 +438,8 @@ void InitTexture() {
 	long int i = 0;
 
 	// Create the 3D texture
-	ptr = (GLubyte *) malloc(texwidth * texheight * texdepth * 4);
-	memset(ptr, 0x00, texwidth * texheight * texdepth * 4);
+	ptr = (GLubyte *) malloc(texwidth * texheight * texdepth * 1);
+	memset(ptr, 0x00, texwidth * texheight * texdepth * 1);
 	//ptr=(GLubyte *) malloc(d_width*d_height*d_slices*4);
 	//memset(ptr,0x00,d_width*d_height*d_slices*4);
 	texData = ptr;
@@ -469,42 +474,80 @@ void InitTexture() {
 		for (t = 0; t < d_height; t++) {
 			//printf("\nheight=%d ",t);
 			for (s = 0; s < d_width; s++) {
-				ptr = texData + ((wc + s) * 4 + (hc + t) * texwidth * 4 + (dc
-						+ p) * texwidth * texheight * 4);
+				ptr = texData + ((wc + s) * 1 + (hc + t) * texwidth * 1 + (dc
+						+ p) * texwidth * texheight * 1);
 				if (raw[i] > 1) {
-					//ptr[0]=raw[i];    // red
+					ptr[0]=raw[i];    // red
 					//ptr[1]=raw[i];   // green
 					//ptr[2]=raw[i];    // blue
 					//ptr[3]=0x15;//cm[raw[i]].alfa; // alpha
-					ptr[0] = cm[raw[i]].r; // red
-					ptr[1] = cm[raw[i]].g; // green
-					ptr[2] = cm[raw[i]].b; // blue
-					ptr[3] = cm[raw[i]].alfa; // alpha
+					//ptr[0] = cm[raw[i]].r; // red
+					//ptr[1] = cm[raw[i]].g; // green
+					//ptr[2] = cm[raw[i]].b; // blue
+					//ptr[3] = cm[raw[i]].alfa; // alpha
 				}
 				i++;
 			}
 		}
 	}
 
-	printf("Carregou toda a textura!\n");
-	glEnable( GL_TEXTURE_3D);
-	glGenTextures(1, &texid);
-	glBindTexture(GL_TEXTURE_3D, texid); //Sélectionne ce n°
+	printf("Carregou textura 3D\n");
+	int j=0;
+	GLuint * tex1D;
+	tex1D = (GLuint *) malloc(1024*sizeof(GLuint));
 
-	glTexImage3D(GL_TEXTURE_3D, //Type : texture 3D
-			0, //Mipmap : aucun
-			GL_RGBA, //GL_LUMINANCE_ALPHA, 	// (red,green,blue,alpha)
-			texwidth, // Largeur
-			texheight, // Hauteur
-			texdepth, // profondeur
-			0, //Largeur du bord : 0
-			GL_RGBA, //GL_LUMINANCE_ALPHA, 	//Format : RGBA
-			GL_UNSIGNED_BYTE, //Type des couleurs
-			texData //Addresse de l'image
-	);
-	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	printf("Textura 3D criada!\n");
+	for(i=0;i<256;i++){
+		tex1D[j++]= cm[i].r;
+		tex1D[j++]= cm[i].g;
+		tex1D[j++]= cm[i].b;
+		tex1D[j++]= cm[i].alfa;
+	}
+
+
+	printf("Carregou textura 1D\n");
+	glEnable( GL_TEXTURE_1D);
+	glGenTextures(1, &texid_1D);
+	glBindTexture(GL_TEXTURE_1D, texid_1D); //Sélectionne ce n°
+	glTexImage1D(GL_TEXTURE_1D, //Type : texture 3D
+					0, //Mipmap : aucun
+					GL_LUMINANCE, 	// (red,green,blue,alpha)
+					256, // Largeur
+					0, //Largeur du bord : 0
+					GL_LUMINANCE, 	//Format : RGBA
+					GL_UNSIGNED_BYTE, //Type des couleurs
+					tex1D //Addresse de l'image
+			);
+
+	    printf("Carregou toda a textura!\n");
+		glEnable( GL_TEXTURE_3D);
+		glGenTextures(1, &texid_3D);
+		glBindTexture(GL_TEXTURE_3D, texid_3D); //Sélectionne ce n°
+
+		glTexImage3D(GL_TEXTURE_3D, //Type : texture 3D
+				0, //Mipmap : aucun
+				GL_LUMINANCE, 	// (red,green,blue,alpha)
+				texwidth, // Largeur
+				texheight, // Hauteur
+				texdepth, // profondeur
+				0, //Largeur du bord : 0
+				GL_LUMINANCE, 	//Format : RGBA
+				GL_UNSIGNED_BYTE, //Type des couleurs
+				texData //Addresse de l'image
+		);
+		glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		printf("Textura 3D criada!\n");
+
+	//Activate and select 3D Texture
+	 glActiveTexture(GL_TEXTURE0);
+	 glBindTexture(GL_TEXTURE_3D, texid_3D);
+	 glEnable(GL_TEXTURE_3D);
+
+	 //Activate and select 1D Texture
+	 	glActiveTexture(GL_TEXTURE1);
+	 	glBindTexture(GL_TEXTURE_1D, texid_1D);
+	 	glEnable(GL_TEXTURE_1D);
+
 }
 
 void InitDraw(void) {
@@ -761,6 +804,7 @@ GLubyte * readRAW(int argc, char **argv) {
 
 int main(int argc, char **argv) {
 
+
 	glutInit(&argc, argv);
 	//glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA);
@@ -799,7 +843,34 @@ int main(int argc, char **argv) {
 
 	//http://cirl.missouri.edu/gpu/glsl_lessons/glsl_geometry_shader/index.html
 
-	setShaders();
+	setShaders(&ProgramObject);
+
+	InitGL(320,320);
+
+	//http://www.opengl.org/wiki/Texture_Sampling
+	//Setting shader's uniform variables
+	GLint volume_location = glGetUniformLocation(ProgramObject, "volume_texture");
+	GLint tf_location = glGetUniformLocation(ProgramObject, "transfer_function");
+
+	//Checking if the state of the shader is also consider invalid.
+	int isValid;
+	glValidateProgram(ProgramObject);
+	glGetProgramiv(ProgramObject, GL_VALIDATE_STATUS, &isValid);
+	if(isValid) printf("Shader is valid!\n");
+	else {
+		printf("Shader isn't Valid!");
+		exit(1);
+	}
+
+	// So, to set up those uniforms, bind the shader and call glUniform1i since they are considered as integers
+	glUseProgram(ProgramObject);
+	//Bind to tex unit 0
+	glUniform1i(volume_location, 0);
+	//Bind to tex unit 1
+	glUniform1i(tf_location, 1);
+
+
+	//InitGL(320,320);
 
 	/* Start Event Processing Engine */
 	glutMainLoop();
