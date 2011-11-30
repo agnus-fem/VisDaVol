@@ -112,12 +112,16 @@ void setShaders(void)
 
 	//First, create our shaders
 	//v = glCreateShader(GL_VERTEX_SHADER);
+	printf("Criando o shader\n");
 	f = glCreateShader(GL_FRAGMENT_SHADER);
+	printf("\tShader criado\n");
 	//g = glCreateShader(GL_GEOMETRY_SHADER_EXT);
 
 	//Read in the programs
 	//vs = textFileRead("GLSL/toon.vert");
+	printf("Lendo o Fragment shader\n");
 	fs = textFileRead("GLSL/toon.frag");
+	printf("\tFragment Shader lido\n");
 	//gs = textFileRead("GLSL/toon.geom");
 
 	//Setup a few constant pointers for below
@@ -126,17 +130,25 @@ void setShaders(void)
 	//const char * gg = gs;
 
 	//glShaderSource(v, 1, &vv, NULL);
+	printf("Definindo o codigo fonte para o Fragment Shader\n");
 	glShaderSource(f, 1, &ff, NULL);
+	printf("\tDefinicao do codigo do Fragment Shader concluida\n");
 	//glShaderSource(g, 1, &gg, NULL);
 
-	free(vs);free(fs);free(gs);
+	//free(vs);
+	free(fs);
+	//free(gs);
 
 	//glCompileShader(v);
+	printf("Compilando o Fragment Shader\n");
 	glCompileShader(f);
+	printf("\tCompilacao do Fragment Shader concluida\n");
 	//glCompileShader(f2);
 	//glCompileShader(g);
 
+	printf("Criando o programa\n");
 	p = glCreateProgram();
+	printf("\tCriacao do programa concluida\n");
 
 	glAttachShader(p,f);
 	//glAttachShader(p,v);
