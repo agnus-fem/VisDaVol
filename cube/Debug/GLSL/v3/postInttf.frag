@@ -10,8 +10,8 @@ void main(void){
       float index;
       //vec4 result;
 
-      index = texture3D(volume_texture, gl_TexCoord[0].xyz).r;
-      //gl_FragColor  = texture1D(transfer_function, index);
-      gl_FragColor  = vec4(index,index,index,index);
+      index = 180;//texture3D(volume_texture, gl_TexCoord[0].xyz).r*255;
+      gl_FragColor  = texture1D(transfer_function, index);
+      //gl_FragColor  = vec4(index,index,index,index);
 
 }

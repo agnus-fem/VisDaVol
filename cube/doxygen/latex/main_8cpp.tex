@@ -1,13 +1,16 @@
 \hypertarget{main_8cpp}{
-\section{/home/aahmgbr/Dropbox/unicamp/disciplinas/IA369/MeusProgramas/workspace/cube/src/main.cpp File Reference}
-\label{main_8cpp}\index{/home/aahmgbr/Dropbox/unicamp/disciplinas/IA369/MeusProgramas/workspace/cube/src/main.cpp@{/home/aahmgbr/Dropbox/unicamp/disciplinas/IA369/MeusProgramas/workspace/cube/src/main.cpp}}
+\section{/home/agnus/Dropbox/unicamp/disciplinas/IA369/MeusProgramas/git/VisDaVol/cube/src/main.cpp File Reference}
+\label{main_8cpp}\index{/home/agnus/Dropbox/unicamp/disciplinas/IA369/MeusProgramas/git/VisDaVol/cube/src/main.cpp@{/home/agnus/Dropbox/unicamp/disciplinas/IA369/MeusProgramas/git/VisDaVol/cube/src/main.cpp}}
 }
 {\ttfamily \#include $<$unistd.h$>$}\par
 {\ttfamily \#include $<$stdio.h$>$}\par
 {\ttfamily \#include $<$string.h$>$}\par
 {\ttfamily \#include $<$math.h$>$}\par
 {\ttfamily \#include \char`\"{}glsl.h\char`\"{}}\par
+{\ttfamily \#include $<$GL/glew.h$>$}\par
+{\ttfamily \#include $<$GL/glut.h$>$}\par
 {\ttfamily \#include \char`\"{}transf.h\char`\"{}}\par
+Include dependency graph for main.cpp:
 \subsection*{Defines}
 \begin{DoxyCompactItemize}
 \item 
@@ -81,13 +84,15 @@ float \hyperlink{main_8cpp_ae718f8eaf729b3ea8131e8f424724273}{pcube} = -\/2.0f
 \item 
 char \hyperlink{main_8cpp_a3dd06e6b317cb120e6b797d3a04fad55}{btStatus} = 0
 \item 
-GLuint \hyperlink{main_8cpp_a169b9f06ff313a85f57f45c8bb9a2159}{texid}
+GLuint \hyperlink{main_8cpp_a588411c6820c3fef541c4c834ba08bf3}{texid\_\-3D}
 \item 
-int \hyperlink{main_8cpp_ae2482823e7d14f18dc9dc919f8c46802}{texwidth} = 64
+GLuint \hyperlink{main_8cpp_a4ee3d1a4cc13e39b969319d716e43c7a}{texid\_\-1D}
 \item 
-int \hyperlink{main_8cpp_a7dc541ce631d2e1d5d03a494cca2fbfd}{texheight} = 64
+int \hyperlink{main_8cpp_ae2482823e7d14f18dc9dc919f8c46802}{texwidth} = 256
 \item 
-int \hyperlink{main_8cpp_a73c15322164b57239dd1b324846a52cb}{texdepth} = 64
+int \hyperlink{main_8cpp_a7dc541ce631d2e1d5d03a494cca2fbfd}{texheight} = 256
+\item 
+int \hyperlink{main_8cpp_a73c15322164b57239dd1b324846a52cb}{texdepth} = 128
 \item 
 float \hyperlink{main_8cpp_a44c17547fc485a6add8f6f233463c5b7}{tick} = 0
 \item 
@@ -140,6 +145,8 @@ GLuint \hyperlink{main_8cpp_a9d74d90913cc3f52108fddb8a13a1fbe}{theVolume} \mbox{
 float \hyperlink{main_8cpp_a68147cce833d98b698183d68629e38d5}{m} \mbox{[}16\mbox{]}
 \item 
 int \hyperlink{main_8cpp_ab630011d522b1305d06b1abf2ba866fe}{TproxyGeometry} = 0
+\item 
+GLuint \hyperlink{main_8cpp_a57902e6af533eb4d989e4402591b3b51}{ProgramObject}
 \end{DoxyCompactItemize}
 
 
@@ -149,21 +156,37 @@ int \hyperlink{main_8cpp_ab630011d522b1305d06b1abf2ba866fe}{TproxyGeometry} = 0
 \index{ESCAPE@{ESCAPE}!main.cpp@{main.cpp}}
 \subsubsection[{ESCAPE}]{\setlength{\rightskip}{0pt plus 5cm}\#define ESCAPE~27}}
 \label{main_8cpp_afe4b0e625372cd38ec60150d6f5594b8}
+
+
+Definition at line 31 of file main.cpp.
+
 \hypertarget{main_8cpp_a207fd5507206d307cd63f95374fcd00d}{
 \index{main.cpp@{main.cpp}!X@{X}}
 \index{X@{X}!main.cpp@{main.cpp}}
 \subsubsection[{X}]{\setlength{\rightskip}{0pt plus 5cm}\#define X~0}}
 \label{main_8cpp_a207fd5507206d307cd63f95374fcd00d}
+
+
+Definition at line 26 of file main.cpp.
+
 \hypertarget{main_8cpp_a798e4073d613ca5ba9618e1b3253df14}{
 \index{main.cpp@{main.cpp}!Y@{Y}}
 \index{Y@{Y}!main.cpp@{main.cpp}}
 \subsubsection[{Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y~1}}
 \label{main_8cpp_a798e4073d613ca5ba9618e1b3253df14}
+
+
+Definition at line 27 of file main.cpp.
+
 \hypertarget{main_8cpp_a51591cf51bdd6c1f6015532422e7770e}{
 \index{main.cpp@{main.cpp}!Z@{Z}}
 \index{Z@{Z}!main.cpp@{main.cpp}}
 \subsubsection[{Z}]{\setlength{\rightskip}{0pt plus 5cm}\#define Z~2}}
 \label{main_8cpp_a51591cf51bdd6c1f6015532422e7770e}
+
+
+Definition at line 28 of file main.cpp.
+
 
 
 \subsection{Function Documentation}
@@ -176,6 +199,10 @@ int \hyperlink{main_8cpp_ab630011d522b1305d06b1abf2ba866fe}{TproxyGeometry} = 0
 \end{DoxyParamCaption}
 )}}
 \label{main_8cpp_ad1df16b409bfbe19e24775a5e189f454}
+
+
+Definition at line 248 of file main.cpp.
+
 \hypertarget{main_8cpp_a32399bcd00a1eda5e5becf75bdd684e0}{
 \index{main.cpp@{main.cpp}!clamp@{clamp}}
 \index{clamp@{clamp}!main.cpp@{main.cpp}}
@@ -191,7 +218,7 @@ int \hyperlink{main_8cpp_ab630011d522b1305d06b1abf2ba866fe}{TproxyGeometry} = 0
 
 Esta função faz com que um valor fique restrito dentro de uma faixa de valores definida por um valor mínimo e máximo. 
 
-/$\ast$! \begin{DoxyAuthor}{Author}
+\begin{DoxyAuthor}{Author}
 Agnus A. Horta. 
 \end{DoxyAuthor}
 \begin{DoxySince}{Since}
@@ -206,6 +233,10 @@ Agnus A. Horta.
 \begin{DoxyReturn}{Returns}
 um inteiro. 
 \end{DoxyReturn}
+
+
+Definition at line 95 of file main.cpp.
+
 \hypertarget{main_8cpp_a352f875809758e5cc02a4a9bdd7b4ff8}{
 \index{main.cpp@{main.cpp}!createPreintegrationTable@{createPreintegrationTable}}
 \index{createPreintegrationTable@{createPreintegrationTable}!main.cpp@{main.cpp}}
@@ -215,6 +246,10 @@ um inteiro.
 \end{DoxyParamCaption}
 )}}
 \label{main_8cpp_a352f875809758e5cc02a4a9bdd7b4ff8}
+
+
+Definition at line 102 of file main.cpp.
+
 \hypertarget{main_8cpp_ac9683f118c0ee4042bd82581dd4fbf90}{
 \index{main.cpp@{main.cpp}!DrawCube@{DrawCube}}
 \index{DrawCube@{DrawCube}!main.cpp@{main.cpp}}
@@ -224,6 +259,10 @@ um inteiro.
 \end{DoxyParamCaption}
 )}}
 \label{main_8cpp_ac9683f118c0ee4042bd82581dd4fbf90}
+
+
+Definition at line 368 of file main.cpp.
+
 \hypertarget{main_8cpp_a53e8a0561f609908c7eddf8018e22744}{
 \index{main.cpp@{main.cpp}!DrawCube1@{DrawCube1}}
 \index{DrawCube1@{DrawCube1}!main.cpp@{main.cpp}}
@@ -233,6 +272,10 @@ um inteiro.
 \end{DoxyParamCaption}
 )}}
 \label{main_8cpp_a53e8a0561f609908c7eddf8018e22744}
+
+
+Definition at line 167 of file main.cpp.
+
 \hypertarget{main_8cpp_a3f50a3778a5799e1dd9cf4547cf73ad3}{
 \index{main.cpp@{main.cpp}!DrawGLScene@{DrawGLScene}}
 \index{DrawGLScene@{DrawGLScene}!main.cpp@{main.cpp}}
@@ -242,6 +285,10 @@ um inteiro.
 \end{DoxyParamCaption}
 )}}
 \label{main_8cpp_a3f50a3778a5799e1dd9cf4547cf73ad3}
+
+
+Definition at line 688 of file main.cpp.
+
 \hypertarget{main_8cpp_a4c455ac94fbff3cc6c5531a1af293520}{
 \index{main.cpp@{main.cpp}!DrawSliceStack@{DrawSliceStack}}
 \index{DrawSliceStack@{DrawSliceStack}!main.cpp@{main.cpp}}
@@ -251,6 +298,10 @@ um inteiro.
 \end{DoxyParamCaption}
 )}}
 \label{main_8cpp_a4c455ac94fbff3cc6c5531a1af293520}
+
+
+Definition at line 314 of file main.cpp.
+
 \hypertarget{main_8cpp_a7fc1674dadf08ff62a23a92b28484c4e}{
 \index{main.cpp@{main.cpp}!FindAbsMaximum@{FindAbsMaximum}}
 \index{FindAbsMaximum@{FindAbsMaximum}!main.cpp@{main.cpp}}
@@ -260,6 +311,10 @@ um inteiro.
 \end{DoxyParamCaption}
 )}}
 \label{main_8cpp_a7fc1674dadf08ff62a23a92b28484c4e}
+
+
+Definition at line 252 of file main.cpp.
+
 \hypertarget{main_8cpp_a177423aabf39051d0c985845cfd65ea2}{
 \index{main.cpp@{main.cpp}!GerenciaMouse@{GerenciaMouse}}
 \index{GerenciaMouse@{GerenciaMouse}!main.cpp@{main.cpp}}
@@ -272,6 +327,10 @@ um inteiro.
 \end{DoxyParamCaption}
 )}}
 \label{main_8cpp_a177423aabf39051d0c985845cfd65ea2}
+
+
+Definition at line 754 of file main.cpp.
+
 \hypertarget{main_8cpp_a5d476a84bd1c056a7889190898386c31}{
 \index{main.cpp@{main.cpp}!InitDraw@{InitDraw}}
 \index{InitDraw@{InitDraw}!main.cpp@{main.cpp}}
@@ -281,6 +340,10 @@ um inteiro.
 \end{DoxyParamCaption}
 )}}
 \label{main_8cpp_a5d476a84bd1c056a7889190898386c31}
+
+
+Definition at line 554 of file main.cpp.
+
 \hypertarget{main_8cpp_ac8d2055368b431f82f03449410409ad0}{
 \index{main.cpp@{main.cpp}!InitGL@{InitGL}}
 \index{InitGL@{InitGL}!main.cpp@{main.cpp}}
@@ -291,6 +354,10 @@ um inteiro.
 \end{DoxyParamCaption}
 )}}
 \label{main_8cpp_ac8d2055368b431f82f03449410409ad0}
+
+
+Definition at line 650 of file main.cpp.
+
 \hypertarget{main_8cpp_ad684ebdecadeaa3a348be34505a8f68a}{
 \index{main.cpp@{main.cpp}!InitTexture@{InitTexture}}
 \index{InitTexture@{InitTexture}!main.cpp@{main.cpp}}
@@ -300,6 +367,10 @@ um inteiro.
 \end{DoxyParamCaption}
 )}}
 \label{main_8cpp_ad684ebdecadeaa3a348be34505a8f68a}
+
+
+Definition at line 433 of file main.cpp.
+
 \hypertarget{main_8cpp_a50dc37e38a64771cdefd9197ed8f41ae}{
 \index{main.cpp@{main.cpp}!InvertMatrix@{InvertMatrix}}
 \index{InvertMatrix@{InvertMatrix}!main.cpp@{main.cpp}}
@@ -310,6 +381,10 @@ um inteiro.
 \end{DoxyParamCaption}
 )}}
 \label{main_8cpp_a50dc37e38a64771cdefd9197ed8f41ae}
+
+
+Definition at line 292 of file main.cpp.
+
 \hypertarget{main_8cpp_ae49b22892a1276b5e664963496a34177}{
 \index{main.cpp@{main.cpp}!keyPressed@{keyPressed}}
 \index{keyPressed@{keyPressed}!main.cpp@{main.cpp}}
@@ -321,6 +396,10 @@ um inteiro.
 \end{DoxyParamCaption}
 )}}
 \label{main_8cpp_ae49b22892a1276b5e664963496a34177}
+
+
+Definition at line 707 of file main.cpp.
+
 \hypertarget{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{
 \index{main.cpp@{main.cpp}!main@{main}}
 \index{main@{main}!main.cpp@{main.cpp}}
@@ -331,6 +410,10 @@ um inteiro.
 \end{DoxyParamCaption}
 )}}
 \label{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
+
+
+Definition at line 806 of file main.cpp.
+
 \hypertarget{main_8cpp_acc9dfde2f9ac947845d788f38a3aa2d6}{
 \index{main.cpp@{main.cpp}!MatrixInvRotate@{MatrixInvRotate}}
 \index{MatrixInvRotate@{MatrixInvRotate}!main.cpp@{main.cpp}}
@@ -341,6 +424,10 @@ um inteiro.
 \end{DoxyParamCaption}
 )}}
 \label{main_8cpp_acc9dfde2f9ac947845d788f38a3aa2d6}
+
+
+Definition at line 278 of file main.cpp.
+
 \hypertarget{main_8cpp_a649c1683bbe237a03f4d2eba07fb6535}{
 \index{main.cpp@{main.cpp}!MatrixMultiply@{MatrixMultiply}}
 \index{MatrixMultiply@{MatrixMultiply}!main.cpp@{main.cpp}}
@@ -352,6 +439,10 @@ um inteiro.
 \end{DoxyParamCaption}
 )}}
 \label{main_8cpp_a649c1683bbe237a03f4d2eba07fb6535}
+
+
+Definition at line 266 of file main.cpp.
+
 \hypertarget{main_8cpp_acb276731cc4a45780dccae74662c25b9}{
 \index{main.cpp@{main.cpp}!MatVecMultiply@{MatVecMultiply}}
 \index{MatVecMultiply@{MatVecMultiply}!main.cpp@{main.cpp}}
@@ -362,6 +453,10 @@ um inteiro.
 \end{DoxyParamCaption}
 )}}
 \label{main_8cpp_acb276731cc4a45780dccae74662c25b9}
+
+
+Definition at line 344 of file main.cpp.
+
 \hypertarget{main_8cpp_ac78df2ede099ccb50e0fed7b0352c24c}{
 \index{main.cpp@{main.cpp}!MoveMouse@{MoveMouse}}
 \index{MoveMouse@{MoveMouse}!main.cpp@{main.cpp}}
@@ -372,6 +467,10 @@ um inteiro.
 \end{DoxyParamCaption}
 )}}
 \label{main_8cpp_ac78df2ede099ccb50e0fed7b0352c24c}
+
+
+Definition at line 748 of file main.cpp.
+
 \hypertarget{main_8cpp_a405a8d38149cfa466629a23e9a3e2289}{
 \index{main.cpp@{main.cpp}!MoveMouseBotaoPressionado@{MoveMouseBotaoPressionado}}
 \index{MoveMouseBotaoPressionado@{MoveMouseBotaoPressionado}!main.cpp@{main.cpp}}
@@ -382,6 +481,10 @@ um inteiro.
 \end{DoxyParamCaption}
 )}}
 \label{main_8cpp_a405a8d38149cfa466629a23e9a3e2289}
+
+
+Definition at line 728 of file main.cpp.
+
 \hypertarget{main_8cpp_a760559a38be92bbe5c2679947c05c27f}{
 \index{main.cpp@{main.cpp}!readRAW@{readRAW}}
 \index{readRAW@{readRAW}!main.cpp@{main.cpp}}
@@ -392,6 +495,10 @@ um inteiro.
 \end{DoxyParamCaption}
 )}}
 \label{main_8cpp_a760559a38be92bbe5c2679947c05c27f}
+
+
+Definition at line 775 of file main.cpp.
+
 \hypertarget{main_8cpp_aaeedc5c1c90eff3a2950f1a2dbbdac6c}{
 \index{main.cpp@{main.cpp}!ReSizeGLScene@{ReSizeGLScene}}
 \index{ReSizeGLScene@{ReSizeGLScene}!main.cpp@{main.cpp}}
@@ -402,6 +509,10 @@ um inteiro.
 \end{DoxyParamCaption}
 )}}
 \label{main_8cpp_aaeedc5c1c90eff3a2950f1a2dbbdac6c}
+
+
+Definition at line 672 of file main.cpp.
+
 \hypertarget{main_8cpp_a2b7840409c0a76bb5c8f7fc5fec06334}{
 \index{main.cpp@{main.cpp}!VectorRotate@{VectorRotate}}
 \index{VectorRotate@{VectorRotate}!main.cpp@{main.cpp}}
@@ -415,179 +526,341 @@ um inteiro.
 \label{main_8cpp_a2b7840409c0a76bb5c8f7fc5fec06334}
 
 
+Definition at line 286 of file main.cpp.
+
+
+
 \subsection{Variable Documentation}
 \hypertarget{main_8cpp_a3dd06e6b317cb120e6b797d3a04fad55}{
 \index{main.cpp@{main.cpp}!btStatus@{btStatus}}
 \index{btStatus@{btStatus}!main.cpp@{main.cpp}}
 \subsubsection[{btStatus}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf btStatus} = 0}}
 \label{main_8cpp_a3dd06e6b317cb120e6b797d3a04fad55}
+
+
+Definition at line 42 of file main.cpp.
+
 \hypertarget{main_8cpp_ad31494204fdd3d2cb30faba527cfb9fa}{
 \index{main.cpp@{main.cpp}!d\_\-height@{d\_\-height}}
 \index{d\_\-height@{d\_\-height}!main.cpp@{main.cpp}}
 \subsubsection[{d\_\-height}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf d\_\-height}}}
 \label{main_8cpp_ad31494204fdd3d2cb30faba527cfb9fa}
+
+
+Definition at line 54 of file main.cpp.
+
 \hypertarget{main_8cpp_a5219b16b08f8d31832acf7154e871b4e}{
 \index{main.cpp@{main.cpp}!d\_\-nsli@{d\_\-nsli}}
 \index{d\_\-nsli@{d\_\-nsli}!main.cpp@{main.cpp}}
 \subsubsection[{d\_\-nsli}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf d\_\-nsli}}}
 \label{main_8cpp_a5219b16b08f8d31832acf7154e871b4e}
+
+
+Definition at line 54 of file main.cpp.
+
 \hypertarget{main_8cpp_a27488496a0017a251d120bce74da2e43}{
 \index{main.cpp@{main.cpp}!d\_\-slices@{d\_\-slices}}
 \index{d\_\-slices@{d\_\-slices}!main.cpp@{main.cpp}}
 \subsubsection[{d\_\-slices}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf d\_\-slices}}}
 \label{main_8cpp_a27488496a0017a251d120bce74da2e43}
+
+
+Definition at line 54 of file main.cpp.
+
 \hypertarget{main_8cpp_ad49412925c79a9894ea598530ea39b00}{
 \index{main.cpp@{main.cpp}!d\_\-width@{d\_\-width}}
 \index{d\_\-width@{d\_\-width}!main.cpp@{main.cpp}}
 \subsubsection[{d\_\-width}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf d\_\-width}}}
 \label{main_8cpp_ad49412925c79a9894ea598530ea39b00}
+
+
+Definition at line 54 of file main.cpp.
+
 \hypertarget{main_8cpp_a93c2ee41abd3c06ade37dd87e48a8a33}{
 \index{main.cpp@{main.cpp}!high\_\-shininess@{high\_\-shininess}}
 \index{high\_\-shininess@{high\_\-shininess}!main.cpp@{main.cpp}}
 \subsubsection[{high\_\-shininess}]{\setlength{\rightskip}{0pt plus 5cm}const GLfloat {\bf high\_\-shininess}\mbox{[}$\,$\mbox{]} = \{ 100.0f \}}}
 \label{main_8cpp_a93c2ee41abd3c06ade37dd87e48a8a33}
+
+
+Definition at line 67 of file main.cpp.
+
 \hypertarget{main_8cpp_a35b44e70b5291d4c6a2ddfa0ffe062e8}{
 \index{main.cpp@{main.cpp}!light\_\-ambient@{light\_\-ambient}}
 \index{light\_\-ambient@{light\_\-ambient}!main.cpp@{main.cpp}}
 \subsubsection[{light\_\-ambient}]{\setlength{\rightskip}{0pt plus 5cm}const GLfloat {\bf light\_\-ambient}\mbox{[}$\,$\mbox{]} = \{ 0.0f, 0.0f, 0.0f, 1.0f \}}}
 \label{main_8cpp_a35b44e70b5291d4c6a2ddfa0ffe062e8}
+
+
+Definition at line 59 of file main.cpp.
+
 \hypertarget{main_8cpp_ad0bc3e49164c7d5d01dd6b4a0d0fff25}{
 \index{main.cpp@{main.cpp}!light\_\-diffuse@{light\_\-diffuse}}
 \index{light\_\-diffuse@{light\_\-diffuse}!main.cpp@{main.cpp}}
 \subsubsection[{light\_\-diffuse}]{\setlength{\rightskip}{0pt plus 5cm}const GLfloat {\bf light\_\-diffuse}\mbox{[}$\,$\mbox{]} = \{ 1.0f, 1.0f, 1.0f, 1.0f \}}}
 \label{main_8cpp_ad0bc3e49164c7d5d01dd6b4a0d0fff25}
+
+
+Definition at line 60 of file main.cpp.
+
 \hypertarget{main_8cpp_aea3c4afba5fcc8b77067671d396b577b}{
 \index{main.cpp@{main.cpp}!light\_\-position@{light\_\-position}}
 \index{light\_\-position@{light\_\-position}!main.cpp@{main.cpp}}
 \subsubsection[{light\_\-position}]{\setlength{\rightskip}{0pt plus 5cm}const GLfloat {\bf light\_\-position}\mbox{[}$\,$\mbox{]} = \{ 2.0f, 5.0f, 5.0f, 0.0f \}}}
 \label{main_8cpp_aea3c4afba5fcc8b77067671d396b577b}
+
+
+Definition at line 62 of file main.cpp.
+
 \hypertarget{main_8cpp_a48537988fd7a403709b0a7ffcbebac77}{
 \index{main.cpp@{main.cpp}!light\_\-specular@{light\_\-specular}}
 \index{light\_\-specular@{light\_\-specular}!main.cpp@{main.cpp}}
 \subsubsection[{light\_\-specular}]{\setlength{\rightskip}{0pt plus 5cm}const GLfloat {\bf light\_\-specular}\mbox{[}$\,$\mbox{]} = \{ 1.0f, 1.0f, 1.0f, 1.0f \}}}
 \label{main_8cpp_a48537988fd7a403709b0a7ffcbebac77}
+
+
+Definition at line 61 of file main.cpp.
+
 \hypertarget{main_8cpp_a68147cce833d98b698183d68629e38d5}{
 \index{main.cpp@{main.cpp}!m@{m}}
 \index{m@{m}!main.cpp@{main.cpp}}
 \subsubsection[{m}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf m}\mbox{[}16\mbox{]}}}
 \label{main_8cpp_a68147cce833d98b698183d68629e38d5}
+
+
+Definition at line 77 of file main.cpp.
+
 \hypertarget{main_8cpp_adfbd08e06a4a9fc898f6a3b9797316d8}{
 \index{main.cpp@{main.cpp}!mat\_\-ambient@{mat\_\-ambient}}
 \index{mat\_\-ambient@{mat\_\-ambient}!main.cpp@{main.cpp}}
 \subsubsection[{mat\_\-ambient}]{\setlength{\rightskip}{0pt plus 5cm}const GLfloat {\bf mat\_\-ambient}\mbox{[}$\,$\mbox{]} = \{ 0.7f, 0.7f, 0.7f, 1.0f \}}}
 \label{main_8cpp_adfbd08e06a4a9fc898f6a3b9797316d8}
+
+
+Definition at line 64 of file main.cpp.
+
 \hypertarget{main_8cpp_aabea2510d410c6e2c8470a262cdabada}{
 \index{main.cpp@{main.cpp}!mat\_\-diffuse@{mat\_\-diffuse}}
 \index{mat\_\-diffuse@{mat\_\-diffuse}!main.cpp@{main.cpp}}
 \subsubsection[{mat\_\-diffuse}]{\setlength{\rightskip}{0pt plus 5cm}const GLfloat {\bf mat\_\-diffuse}\mbox{[}$\,$\mbox{]} = \{ 0.8f, 0.8f, 0.8f, 1.0f \}}}
 \label{main_8cpp_aabea2510d410c6e2c8470a262cdabada}
+
+
+Definition at line 65 of file main.cpp.
+
 \hypertarget{main_8cpp_aa024b50a93b02ad54fc180d4729d8735}{
 \index{main.cpp@{main.cpp}!mat\_\-specular@{mat\_\-specular}}
 \index{mat\_\-specular@{mat\_\-specular}!main.cpp@{main.cpp}}
 \subsubsection[{mat\_\-specular}]{\setlength{\rightskip}{0pt plus 5cm}const GLfloat {\bf mat\_\-specular}\mbox{[}$\,$\mbox{]} = \{ 1.0f, 1.0f, 1.0f, 1.0f \}}}
 \label{main_8cpp_aa024b50a93b02ad54fc180d4729d8735}
+
+
+Definition at line 66 of file main.cpp.
+
 \hypertarget{main_8cpp_ab228548b8f0e557584ad70ed635cda21}{
 \index{main.cpp@{main.cpp}!oldXp@{oldXp}}
 \index{oldXp@{oldXp}!main.cpp@{main.cpp}}
 \subsubsection[{oldXp}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf oldXp}}}
 \label{main_8cpp_ab228548b8f0e557584ad70ed635cda21}
+
+
+Definition at line 71 of file main.cpp.
+
 \hypertarget{main_8cpp_aab7251e1d315280864284925e422c596}{
 \index{main.cpp@{main.cpp}!oldXr@{oldXr}}
 \index{oldXr@{oldXr}!main.cpp@{main.cpp}}
 \subsubsection[{oldXr}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf oldXr}}}
 \label{main_8cpp_aab7251e1d315280864284925e422c596}
+
+
+Definition at line 70 of file main.cpp.
+
 \hypertarget{main_8cpp_a229dbe236b483bd963c4d71cbfae9b3d}{
 \index{main.cpp@{main.cpp}!oldYp@{oldYp}}
 \index{oldYp@{oldYp}!main.cpp@{main.cpp}}
 \subsubsection[{oldYp}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf oldYp}}}
 \label{main_8cpp_a229dbe236b483bd963c4d71cbfae9b3d}
+
+
+Definition at line 71 of file main.cpp.
+
 \hypertarget{main_8cpp_ac56c3006d83e01536c81ea235ff90555}{
 \index{main.cpp@{main.cpp}!oldYr@{oldYr}}
 \index{oldYr@{oldYr}!main.cpp@{main.cpp}}
 \subsubsection[{oldYr}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf oldYr}}}
 \label{main_8cpp_ac56c3006d83e01536c81ea235ff90555}
+
+
+Definition at line 70 of file main.cpp.
+
 \hypertarget{main_8cpp_ae718f8eaf729b3ea8131e8f424724273}{
 \index{main.cpp@{main.cpp}!pcube@{pcube}}
 \index{pcube@{pcube}!main.cpp@{main.cpp}}
 \subsubsection[{pcube}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf pcube} = -\/2.0f}}
 \label{main_8cpp_ae718f8eaf729b3ea8131e8f424724273}
+
+
+Definition at line 40 of file main.cpp.
+
+\hypertarget{main_8cpp_a57902e6af533eb4d989e4402591b3b51}{
+\index{main.cpp@{main.cpp}!ProgramObject@{ProgramObject}}
+\index{ProgramObject@{ProgramObject}!main.cpp@{main.cpp}}
+\subsubsection[{ProgramObject}]{\setlength{\rightskip}{0pt plus 5cm}GLuint {\bf ProgramObject}}}
+\label{main_8cpp_a57902e6af533eb4d989e4402591b3b51}
+
+
+Definition at line 81 of file main.cpp.
+
 \hypertarget{main_8cpp_aa50a364932b2a3a061b6836ac880b4e9}{
 \index{main.cpp@{main.cpp}!raw@{raw}}
 \index{raw@{raw}!main.cpp@{main.cpp}}
 \subsubsection[{raw}]{\setlength{\rightskip}{0pt plus 5cm}GLubyte$\ast$ {\bf raw}}}
 \label{main_8cpp_aa50a364932b2a3a061b6836ac880b4e9}
+
+
+Definition at line 57 of file main.cpp.
+
 \hypertarget{main_8cpp_a57fa3d20fccdbeabada817659e0ca5ce}{
 \index{main.cpp@{main.cpp}!rcubex@{rcubex}}
 \index{rcubex@{rcubex}!main.cpp@{main.cpp}}
 \subsubsection[{rcubex}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf rcubex} = 0.0f}}
 \label{main_8cpp_a57fa3d20fccdbeabada817659e0ca5ce}
+
+
+Definition at line 37 of file main.cpp.
+
 \hypertarget{main_8cpp_aff9022eb87d86faf8f912b302c8a794b}{
 \index{main.cpp@{main.cpp}!rcubey@{rcubey}}
 \index{rcubey@{rcubey}!main.cpp@{main.cpp}}
 \subsubsection[{rcubey}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf rcubey} = 0.0f}}
 \label{main_8cpp_aff9022eb87d86faf8f912b302c8a794b}
+
+
+Definition at line 38 of file main.cpp.
+
 \hypertarget{main_8cpp_a34fb96d3e60f782c72de5ac6b915032a}{
 \index{main.cpp@{main.cpp}!stick@{stick}}
 \index{stick@{stick}!main.cpp@{main.cpp}}
 \subsubsection[{stick}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf stick} = 1}}
 \label{main_8cpp_a34fb96d3e60f782c72de5ac6b915032a}
+
+
+Definition at line 51 of file main.cpp.
+
 \hypertarget{main_8cpp_a27fdfeb2d1da1ed1e213af6eb550b24f}{
 \index{main.cpp@{main.cpp}!texData@{texData}}
 \index{texData@{texData}!main.cpp@{main.cpp}}
 \subsubsection[{texData}]{\setlength{\rightskip}{0pt plus 5cm}GLubyte$\ast$ {\bf texData}}}
 \label{main_8cpp_a27fdfeb2d1da1ed1e213af6eb550b24f}
+
+
+Definition at line 53 of file main.cpp.
+
 \hypertarget{main_8cpp_a73c15322164b57239dd1b324846a52cb}{
 \index{main.cpp@{main.cpp}!texdepth@{texdepth}}
 \index{texdepth@{texdepth}!main.cpp@{main.cpp}}
-\subsubsection[{texdepth}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf texdepth} = 64}}
+\subsubsection[{texdepth}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf texdepth} = 128}}
 \label{main_8cpp_a73c15322164b57239dd1b324846a52cb}
+
+
+Definition at line 48 of file main.cpp.
+
 \hypertarget{main_8cpp_a7dc541ce631d2e1d5d03a494cca2fbfd}{
 \index{main.cpp@{main.cpp}!texheight@{texheight}}
 \index{texheight@{texheight}!main.cpp@{main.cpp}}
-\subsubsection[{texheight}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf texheight} = 64}}
+\subsubsection[{texheight}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf texheight} = 256}}
 \label{main_8cpp_a7dc541ce631d2e1d5d03a494cca2fbfd}
-\hypertarget{main_8cpp_a169b9f06ff313a85f57f45c8bb9a2159}{
-\index{main.cpp@{main.cpp}!texid@{texid}}
-\index{texid@{texid}!main.cpp@{main.cpp}}
-\subsubsection[{texid}]{\setlength{\rightskip}{0pt plus 5cm}GLuint {\bf texid}}}
-\label{main_8cpp_a169b9f06ff313a85f57f45c8bb9a2159}
+
+
+Definition at line 47 of file main.cpp.
+
+\hypertarget{main_8cpp_a4ee3d1a4cc13e39b969319d716e43c7a}{
+\index{main.cpp@{main.cpp}!texid\_\-1D@{texid\_\-1D}}
+\index{texid\_\-1D@{texid\_\-1D}!main.cpp@{main.cpp}}
+\subsubsection[{texid\_\-1D}]{\setlength{\rightskip}{0pt plus 5cm}GLuint {\bf texid\_\-1D}}}
+\label{main_8cpp_a4ee3d1a4cc13e39b969319d716e43c7a}
+
+
+Definition at line 45 of file main.cpp.
+
+\hypertarget{main_8cpp_a588411c6820c3fef541c4c834ba08bf3}{
+\index{main.cpp@{main.cpp}!texid\_\-3D@{texid\_\-3D}}
+\index{texid\_\-3D@{texid\_\-3D}!main.cpp@{main.cpp}}
+\subsubsection[{texid\_\-3D}]{\setlength{\rightskip}{0pt plus 5cm}GLuint {\bf texid\_\-3D}}}
+\label{main_8cpp_a588411c6820c3fef541c4c834ba08bf3}
+
+
+Definition at line 45 of file main.cpp.
+
 \hypertarget{main_8cpp_ae2482823e7d14f18dc9dc919f8c46802}{
 \index{main.cpp@{main.cpp}!texwidth@{texwidth}}
 \index{texwidth@{texwidth}!main.cpp@{main.cpp}}
-\subsubsection[{texwidth}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf texwidth} = 64}}
+\subsubsection[{texwidth}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf texwidth} = 256}}
 \label{main_8cpp_ae2482823e7d14f18dc9dc919f8c46802}
+
+
+Definition at line 46 of file main.cpp.
+
 \hypertarget{main_8cpp_a9d74d90913cc3f52108fddb8a13a1fbe}{
 \index{main.cpp@{main.cpp}!theVolume@{theVolume}}
 \index{theVolume@{theVolume}!main.cpp@{main.cpp}}
 \subsubsection[{theVolume}]{\setlength{\rightskip}{0pt plus 5cm}GLuint {\bf theVolume}\mbox{[}6\mbox{]}}}
 \label{main_8cpp_a9d74d90913cc3f52108fddb8a13a1fbe}
+
+
+Definition at line 75 of file main.cpp.
+
 \hypertarget{main_8cpp_a44c17547fc485a6add8f6f233463c5b7}{
 \index{main.cpp@{main.cpp}!tick@{tick}}
 \index{tick@{tick}!main.cpp@{main.cpp}}
 \subsubsection[{tick}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf tick} = 0}}
 \label{main_8cpp_a44c17547fc485a6add8f6f233463c5b7}
+
+
+Definition at line 50 of file main.cpp.
+
 \hypertarget{main_8cpp_a3a49e9bae6aba7d0daec651613ab841c}{
 \index{main.cpp@{main.cpp}!tk@{tk}}
 \index{tk@{tk}!main.cpp@{main.cpp}}
 \subsubsection[{tk}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf tk}}}
 \label{main_8cpp_a3a49e9bae6aba7d0daec651613ab841c}
+
+
+Definition at line 73 of file main.cpp.
+
 \hypertarget{main_8cpp_ab630011d522b1305d06b1abf2ba866fe}{
 \index{main.cpp@{main.cpp}!TproxyGeometry@{TproxyGeometry}}
 \index{TproxyGeometry@{TproxyGeometry}!main.cpp@{main.cpp}}
 \subsubsection[{TproxyGeometry}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf TproxyGeometry} = 0}}
 \label{main_8cpp_ab630011d522b1305d06b1abf2ba866fe}
+
+
+Definition at line 79 of file main.cpp.
+
 \hypertarget{main_8cpp_a65ba7a0b8164c01b33d92b9ab0f2af03}{
 \index{main.cpp@{main.cpp}!window@{window}}
 \index{window@{window}!main.cpp@{main.cpp}}
 \subsubsection[{window}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf window}}}
 \label{main_8cpp_a65ba7a0b8164c01b33d92b9ab0f2af03}
+
+
+Definition at line 34 of file main.cpp.
+
 \hypertarget{main_8cpp_a092dc054ffbc72785c6c416eac5ba6c2}{
 \index{main.cpp@{main.cpp}!winHeight@{winHeight}}
 \index{winHeight@{winHeight}!main.cpp@{main.cpp}}
 \subsubsection[{winHeight}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf winHeight}}}
 \label{main_8cpp_a092dc054ffbc72785c6c416eac5ba6c2}
+
+
+Definition at line 69 of file main.cpp.
+
 \hypertarget{main_8cpp_a51aeec8523eeaee596e1f8f73d9b0233}{
 \index{main.cpp@{main.cpp}!winWidth@{winWidth}}
 \index{winWidth@{winWidth}!main.cpp@{main.cpp}}
 \subsubsection[{winWidth}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf winWidth}}}
 \label{main_8cpp_a51aeec8523eeaee596e1f8f73d9b0233}
+
+
+Definition at line 69 of file main.cpp.
+

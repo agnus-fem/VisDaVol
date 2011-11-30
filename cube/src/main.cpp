@@ -80,9 +80,10 @@ int TproxyGeometry = 0;
 
 GLuint ProgramObject;
 
-//! Esta função faz com que um valor fique restrito dentro de uma faixa de valores definida por um valor mínimo e máximo
-/*!
+//!
  /*!
+ * @brief Esta função faz com que um valor fique restrito dentro de uma faixa de valores definida por um valor mínimo e máximo
+ *
  * \author Agnus A. Horta.
  * \since 30/10/2011
  * \version 1.0
@@ -318,15 +319,16 @@ void DrawSliceStack(int proxyGeometry) {
 	//glUseProgram(prog);
 
 
-	glEnable( GL_TEXTURE_3D);
-	glDisable( GL_DEPTH_TEST); // Enable Depth Testing
+	glEnable( GL_TEXTURE_3D );
+	glEnable( GL_TEXTURE_1D );
+	glDisable( GL_DEPTH_TEST ); // Enable Depth Testing
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); // Enable Alpha Blending (disable alpha testing)
-	glEnable( GL_BLEND);
+	glEnable( GL_BLEND );
 
-	glCallList(theVolume[proxyGeometry]);//showDeBola]);
+	glCallList(theVolume[proxyGeometry]);
 	glFlush();
 
-	glDisable(GL_TEXTURE_3D);
+	//glDisable(GL_TEXTURE_3D);
 
 	// Done Drawing The Cube
 	/* glBegin(GL_LINE_LOOP);
@@ -381,24 +383,6 @@ void DrawCube() {
 
 	MatVecMultiply(pModelViewMatrixInv, pViewVector);
 
-	/*
-	 printf("ModelViewMatrixInv:\n%f %f %f %f \n", pModelViewMatrixInv[0],pModelViewMatrixInv[1],pModelViewMatrixInv[2],pModelViewMatrixInv[3]);
-	 printf("%f %f %f %f \n", pModelViewMatrixInv[4],pModelViewMatrixInv[5],pModelViewMatrixInv[6],pModelViewMatrixInv[7]);
-	 printf("%f %f %f %f \n", pModelViewMatrixInv[8],pModelViewMatrixInv[9],pModelViewMatrixInv[10],pModelViewMatrixInv[11]);
-	 printf("%f %f %f %f \n\n", pModelViewMatrixInv[12],pModelViewMatrixInv[13],pModelViewMatrixInv[14],pModelViewMatrixInv[15]);
-
-	 printf("ModelViewMatrix:\n%f %f %f %f \n", pModelViewMatrix[0],pModelViewMatrix[1],pModelViewMatrix[2],pModelViewMatrix[3]);
-	 printf("%f %f %f %f \n", pModelViewMatrix[4],pModelViewMatrix[5],pModelViewMatrix[6],pModelViewMatrix[7]);
-	 printf("%f %f %f %f \n", pModelViewMatrix[8],pModelViewMatrix[9],pModelViewMatrix[10],pModelViewMatrix[11]);
-	 printf("%f %f %f %f \n\n", pModelViewMatrix[12],pModelViewMatrix[13],pModelViewMatrix[14],pModelViewMatrix[15]);
-
-	 MatrixMultiply(pModelViewMatrixInv ,pModelViewMatrix, pMatrixIdentity);
-	 printf("MatrixIdentity:\n%f %f %f %f \n", pMatrixIdentity[0],pMatrixIdentity[1],pMatrixIdentity[2],pMatrixIdentity[3]);
-	 printf("%f %f %f %f \n", pMatrixIdentity[4],pMatrixIdentity[5],pMatrixIdentity[6],pMatrixIdentity[7]);
-	 printf("%f %f %f %f \n", pMatrixIdentity[8],pMatrixIdentity[9],pMatrixIdentity[10],pMatrixIdentity[11]);
-	 printf("%f %f %f %f \n\n", pMatrixIdentity[12],pMatrixIdentity[13],pMatrixIdentity[14],pMatrixIdentity[15]);
-	 */
-	//VectorRotate(pModelViewMatrixInv, pViewVector, pViewVector);
 	// find the maximal vector component
 	int nMax = FindAbsMaximum(pViewVector);
 
@@ -438,34 +422,23 @@ void InitTexture() {
 	long int i = 0;
 
 	// Create the 3D texture
-	ptr = (GLubyte *) malloc(texwidth * texheight * texdepth * 1);
-	memset(ptr, 0x00, texwidth * texheight * texdepth * 1);
+	ptr = (GLubyte *) malloc(texwidth * texheight * texdepth * sizeof(GLubyte)
+			* 1);
+	memset(ptr, 0x00, texwidth * texheight * texdepth * sizeof(GLubyte) * 1);
 	//ptr=(GLubyte *) malloc(d_width*d_height*d_slices*4);
 	//memset(ptr,0x00,d_width*d_height*d_slices*4);
 	texData = ptr;
 	printf("malloc = %p, texData = %p, size=%d \n", ptr, texData, texwidth
-			* texheight * texdepth);
-
-	//d_width = 256;
-	//d_height = 256;
-	//d_slices = 84;
+			* texheight * texdepth * sizeof(GLubyte) * 1);
 
 	wc = (texwidth - d_width) / 2;
 	hc = (texheight - d_height) / 2;
 	dc = (texdepth - d_slices) / 2;
 
-	printf("d_width = %d\n", d_width);
-	printf("d_height = %d\n", d_height);
-	printf("d_d_slices = %d\n", d_slices);
-
-	printf("wc = %d\n", wc);
-	printf("hc = %d\n", hc);
-	printf("dc = %d\n", dc);
-
 	COLORMAP cm;
 
 	createColorMap(cm);
-	//colorMapWrite("teste.map", cm);
+	colorMapWrite("teste.map", cm);
 	colorMapRead("teste.map", cm);
 	//ptr+=(wc+hc*texwidth+dc*texwidth*texheight);
 
@@ -476,77 +449,78 @@ void InitTexture() {
 			for (s = 0; s < d_width; s++) {
 				ptr = texData + ((wc + s) * 1 + (hc + t) * texwidth * 1 + (dc
 						+ p) * texwidth * texheight * 1);
-				if (raw[i] > 1) {
-					ptr[0]=raw[i];    // red
-					//ptr[1]=raw[i];   // green
-					//ptr[2]=raw[i];    // blue
-					//ptr[3]=0x15;//cm[raw[i]].alfa; // alpha
-					//ptr[0] = cm[raw[i]].r; // red
-					//ptr[1] = cm[raw[i]].g; // green
-					//ptr[2] = cm[raw[i]].b; // blue
-					//ptr[3] = cm[raw[i]].alfa; // alpha
-				}
+				//if (raw[i] > 1) {
+				ptr[0] = raw[i]; // red
+				//ptr[1]=raw[i];   // green
+				//ptr[2]=raw[i];    // blue
+				//ptr[3]=raw[i];//cm[raw[i]].alfa; // alpha
+				//ptr[0] = cm[raw[i]].r; // red
+				//ptr[1] = cm[raw[i]].g; // green
+				//ptr[2] = cm[raw[i]].b; // blue
+				//ptr[3] = cm[raw[i]].alfa; // alpha
+				//}
 				i++;
 			}
 		}
 	}
 
 	printf("Carregou textura 3D\n");
-	int j=0;
-	GLuint * tex1D;
-	tex1D = (GLuint *) malloc(1024*sizeof(GLuint));
 
-	for(i=0;i<256;i++){
-		tex1D[j++]= cm[i].r;
-		tex1D[j++]= cm[i].g;
-		tex1D[j++]= cm[i].b;
-		tex1D[j++]= cm[i].alfa;
+	GLuint * tex1D;
+	tex1D = (GLuint *) malloc(1024 * sizeof(GLuint));
+
+	for (i = 0; i < 256; i++) {
+		tex1D[i * 4] = cm[i].r;
+		tex1D[i * 4 + 1] = cm[i].g;
+		tex1D[i * 4 + 2] = cm[i].b;
+		tex1D[i * 4 + 3] = cm[i].alfa;
+		printf("%d -> (%d, %d, %d, %d)\n", i, tex1D[i * 4], tex1D[i * 4 + 1],
+				tex1D[i * 4 + 2], tex1D[i * 4 + 3]);
 	}
 
-
 	printf("Carregou textura 1D\n");
-	glEnable( GL_TEXTURE_1D);
+	glEnable(GL_TEXTURE_1D);
 	glGenTextures(1, &texid_1D);
 	glBindTexture(GL_TEXTURE_1D, texid_1D); //Sélectionne ce n°
 	glTexImage1D(GL_TEXTURE_1D, //Type : texture 3D
-					0, //Mipmap : aucun
-					GL_LUMINANCE, 	// (red,green,blue,alpha)
-					256, // Largeur
-					0, //Largeur du bord : 0
-					GL_LUMINANCE, 	//Format : RGBA
-					GL_UNSIGNED_BYTE, //Type des couleurs
-					tex1D //Addresse de l'image
-			);
+			0, //Mipmap : aucun
+			GL_RGBA, // (red,green,blue,alpha)
+			256, // Largeur
+			0, //Largeur du bord : 0
+			GL_RGBA, //Format : RGBA
+			GL_UNSIGNED_BYTE, //Type des couleurs
+			tex1D //Addresse de l'image
+	);
 
-	    printf("Carregou toda a textura!\n");
-		glEnable( GL_TEXTURE_3D);
-		glGenTextures(1, &texid_3D);
-		glBindTexture(GL_TEXTURE_3D, texid_3D); //Sélectionne ce n°
+	printf("Carregou toda a textura!\n");
+	glEnable(GL_TEXTURE_3D);
+	glGenTextures(1, &texid_3D);
+	glBindTexture(GL_TEXTURE_3D, texid_3D); //Sélectionne ce n°
 
-		glTexImage3D(GL_TEXTURE_3D, //Type : texture 3D
-				0, //Mipmap : aucun
-				GL_LUMINANCE, 	// (red,green,blue,alpha)
-				texwidth, // Largeur
-				texheight, // Hauteur
-				texdepth, // profondeur
-				0, //Largeur du bord : 0
-				GL_LUMINANCE, 	//Format : RGBA
-				GL_UNSIGNED_BYTE, //Type des couleurs
-				texData //Addresse de l'image
-		);
-		glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-		glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-		printf("Textura 3D criada!\n");
+	glTexImage3D(GL_TEXTURE_3D, //Type : texture 3D
+			0, //Mipmap : aucun
+			GL_LUMINANCE, // (red,green,blue,alpha)
+			texwidth, // Largeur
+			texheight, // Hauteur
+			texdepth, // profondeur
+			0, //Largeur du bord : 0
+			GL_LUMINANCE, //Format : RGBA
+			GL_UNSIGNED_BYTE, //Type des couleurs
+			texData //Addresse de l'image
+	);
+	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	printf("Textura 3D criada!\n");
 
 	//Activate and select 3D Texture
-	 glActiveTexture(GL_TEXTURE0);
-	 glBindTexture(GL_TEXTURE_3D, texid_3D);
-	 glEnable(GL_TEXTURE_3D);
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_3D, texid_3D);
+	glEnable(GL_TEXTURE_3D);
 
-	 //Activate and select 1D Texture
-	 	glActiveTexture(GL_TEXTURE1);
-	 	glBindTexture(GL_TEXTURE_1D, texid_1D);
-	 	glEnable(GL_TEXTURE_1D);
+	//Activate and select 1D Texture
+	glActiveTexture(GL_TEXTURE1);
+	glBindTexture(GL_TEXTURE_1D, texid_1D);
+	glEnable(GL_TEXTURE_1D);
 
 }
 
@@ -809,7 +783,7 @@ int main(int argc, char **argv) {
 	//glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA);
 	glutInitWindowPosition(100, 100);
-	glutInitWindowSize(320, 320);
+	glutInitWindowSize(640, 640);
 	glutCreateWindow("Teste de Vizualizacao com textura 3D");
 
 	glutDisplayFunc(&DrawGLScene);
@@ -845,7 +819,7 @@ int main(int argc, char **argv) {
 
 	setShaders(&ProgramObject);
 
-	InitGL(320,320);
+	InitGL(640, 640);
 
 	//http://www.opengl.org/wiki/Texture_Sampling
 	//Setting shader's uniform variables

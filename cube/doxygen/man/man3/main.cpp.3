@@ -1,8 +1,8 @@
-.TH "/home/aahmgbr/Dropbox/unicamp/disciplinas/IA369/MeusProgramas/workspace/cube/src/main.cpp" 3 "Mon Nov 28 2011" "Version V1.04" "VisDaVol" \" -*- nroff -*-
+.TH "/home/agnus/Dropbox/unicamp/disciplinas/IA369/MeusProgramas/git/VisDaVol/cube/src/main.cpp" 3 "Wed Nov 30 2011" "Version V1.04" "VisDaVol" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-/home/aahmgbr/Dropbox/unicamp/disciplinas/IA369/MeusProgramas/workspace/cube/src/main.cpp \- 
+/home/agnus/Dropbox/unicamp/disciplinas/IA369/MeusProgramas/git/VisDaVol/cube/src/main.cpp \- 
 .SH SYNOPSIS
 .br
 .PP
@@ -15,6 +15,10 @@
 \fC#include <math.h>\fP
 .br
 \fC#include 'glsl.h'\fP
+.br
+\fC#include <GL/glew.h>\fP
+.br
+\fC#include <GL/glut.h>\fP
 .br
 \fC#include 'transf.h'\fP
 .br
@@ -128,16 +132,19 @@
 .RI "char \fBbtStatus\fP = 0"
 .br
 .ti -1c
-.RI "GLuint \fBtexid\fP"
+.RI "GLuint \fBtexid_3D\fP"
 .br
 .ti -1c
-.RI "int \fBtexwidth\fP = 64"
+.RI "GLuint \fBtexid_1D\fP"
 .br
 .ti -1c
-.RI "int \fBtexheight\fP = 64"
+.RI "int \fBtexwidth\fP = 256"
 .br
 .ti -1c
-.RI "int \fBtexdepth\fP = 64"
+.RI "int \fBtexheight\fP = 256"
+.br
+.ti -1c
+.RI "int \fBtexdepth\fP = 128"
 .br
 .ti -1c
 .RI "float \fBtick\fP = 0"
@@ -217,21 +224,32 @@
 .ti -1c
 .RI "int \fBTproxyGeometry\fP = 0"
 .br
+.ti -1c
+.RI "GLuint \fBProgramObject\fP"
+.br
 .in -1c
 .SH "Define Documentation"
 .PP 
 .SS "#define ESCAPE   27"
+.PP
+Definition at line 31 of file main.cpp.
 .SS "#define X   0"
+.PP
+Definition at line 26 of file main.cpp.
 .SS "#define Y   1"
+.PP
+Definition at line 27 of file main.cpp.
 .SS "#define Z   2"
+.PP
+Definition at line 28 of file main.cpp.
 .SH "Function Documentation"
 .PP 
 .SS "float abs (float x)"
+.PP
+Definition at line 248 of file main.cpp.
 .SS "GLubyte clamp (double value, const int min, const int max)"
 .PP
-Esta função faz com que um valor fique restrito dentro de uma faixa de valores definida por um valor mínimo e máximo. /*! 
-.PP
-\fBAuthor:\fP
+Esta função faz com que um valor fique restrito dentro de uma faixa de valores definida por um valor mínimo e máximo. \fBAuthor:\fP
 .RS 4
 Agnus A. Horta. 
 .RE
@@ -261,64 +279,184 @@ um inteiro.
 .RE
 .PP
 
+.PP
+Definition at line 95 of file main.cpp.
 .SS "void createPreintegrationTable (GLubyte * Table)"
+.PP
+Definition at line 102 of file main.cpp.
 .SS "void DrawCube ()"
+.PP
+Definition at line 368 of file main.cpp.
 .SS "void DrawCube1 ()"
+.PP
+Definition at line 167 of file main.cpp.
 .SS "void DrawGLScene ()"
+.PP
+Definition at line 688 of file main.cpp.
 .SS "void DrawSliceStack (int proxyGeometry)"
+.PP
+Definition at line 314 of file main.cpp.
 .SS "int FindAbsMaximum (GLfloat pViewVector[4])"
+.PP
+Definition at line 252 of file main.cpp.
 .SS "void GerenciaMouse (int button, int state, int x, int y)"
+.PP
+Definition at line 754 of file main.cpp.
 .SS "void InitDraw (void)"
+.PP
+Definition at line 554 of file main.cpp.
 .SS "void InitGL (int Width, int Height)"
+.PP
+Definition at line 650 of file main.cpp.
 .SS "void InitTexture ()"
+.PP
+Definition at line 433 of file main.cpp.
 .SS "void InvertMatrix (GLfloat mtxin[16], GLfloat mtxout[16])"
+.PP
+Definition at line 292 of file main.cpp.
 .SS "void keyPressed (unsigned char key, int x, int y)"
+.PP
+Definition at line 707 of file main.cpp.
 .SS "int main (int argc, char ** argv)"
+.PP
+Definition at line 806 of file main.cpp.
 .SS "void MatrixInvRotate (GLfloat mtxin[16], GLfloat mtxout[16])"
+.PP
+Definition at line 278 of file main.cpp.
 .SS "void MatrixMultiply (GLfloat mtxin1[16], GLfloat mtxin2[16], GLfloat mtxout[16])"
+.PP
+Definition at line 266 of file main.cpp.
 .SS "void MatVecMultiply (GLfloat pModelViewMatrixInv[16], GLfloat pViewVector[4])"
+.PP
+Definition at line 344 of file main.cpp.
 .SS "void MoveMouse (int x, int y)"
+.PP
+Definition at line 748 of file main.cpp.
 .SS "void MoveMouseBotaoPressionado (int x, int y)"
+.PP
+Definition at line 728 of file main.cpp.
 .SS "GLubyte * readRAW (int argc, char ** argv)"
+.PP
+Definition at line 775 of file main.cpp.
 .SS "void ReSizeGLScene (int Width, int Height)"
+.PP
+Definition at line 672 of file main.cpp.
 .SS "void VectorRotate (const GLfloat vin[4], const GLfloat mtx[16], GLfloat vout[4])"
+.PP
+Definition at line 286 of file main.cpp.
 .SH "Variable Documentation"
 .PP 
 .SS "char \fBbtStatus\fP = 0"
+.PP
+Definition at line 42 of file main.cpp.
 .SS "int \fBd_height\fP"
+.PP
+Definition at line 54 of file main.cpp.
 .SS "int \fBd_nsli\fP"
+.PP
+Definition at line 54 of file main.cpp.
 .SS "int \fBd_slices\fP"
+.PP
+Definition at line 54 of file main.cpp.
 .SS "int \fBd_width\fP"
+.PP
+Definition at line 54 of file main.cpp.
 .SS "const GLfloat \fBhigh_shininess\fP[] = { 100.0f }"
+.PP
+Definition at line 67 of file main.cpp.
 .SS "const GLfloat \fBlight_ambient\fP[] = { 0.0f, 0.0f, 0.0f, 1.0f }"
+.PP
+Definition at line 59 of file main.cpp.
 .SS "const GLfloat \fBlight_diffuse\fP[] = { 1.0f, 1.0f, 1.0f, 1.0f }"
+.PP
+Definition at line 60 of file main.cpp.
 .SS "const GLfloat \fBlight_position\fP[] = { 2.0f, 5.0f, 5.0f, 0.0f }"
+.PP
+Definition at line 62 of file main.cpp.
 .SS "const GLfloat \fBlight_specular\fP[] = { 1.0f, 1.0f, 1.0f, 1.0f }"
+.PP
+Definition at line 61 of file main.cpp.
 .SS "float \fBm\fP[16]"
+.PP
+Definition at line 77 of file main.cpp.
 .SS "const GLfloat \fBmat_ambient\fP[] = { 0.7f, 0.7f, 0.7f, 1.0f }"
+.PP
+Definition at line 64 of file main.cpp.
 .SS "const GLfloat \fBmat_diffuse\fP[] = { 0.8f, 0.8f, 0.8f, 1.0f }"
+.PP
+Definition at line 65 of file main.cpp.
 .SS "const GLfloat \fBmat_specular\fP[] = { 1.0f, 1.0f, 1.0f, 1.0f }"
+.PP
+Definition at line 66 of file main.cpp.
 .SS "int \fBoldXp\fP"
+.PP
+Definition at line 71 of file main.cpp.
 .SS "int \fBoldXr\fP"
+.PP
+Definition at line 70 of file main.cpp.
 .SS "int \fBoldYp\fP"
+.PP
+Definition at line 71 of file main.cpp.
 .SS "int \fBoldYr\fP"
+.PP
+Definition at line 70 of file main.cpp.
 .SS "float \fBpcube\fP = -2.0f"
+.PP
+Definition at line 40 of file main.cpp.
+.SS "GLuint \fBProgramObject\fP"
+.PP
+Definition at line 81 of file main.cpp.
 .SS "GLubyte* \fBraw\fP"
+.PP
+Definition at line 57 of file main.cpp.
 .SS "float \fBrcubex\fP = 0.0f"
+.PP
+Definition at line 37 of file main.cpp.
 .SS "float \fBrcubey\fP = 0.0f"
+.PP
+Definition at line 38 of file main.cpp.
 .SS "float \fBstick\fP = 1"
+.PP
+Definition at line 51 of file main.cpp.
 .SS "GLubyte* \fBtexData\fP"
-.SS "int \fBtexdepth\fP = 64"
-.SS "int \fBtexheight\fP = 64"
-.SS "GLuint \fBtexid\fP"
-.SS "int \fBtexwidth\fP = 64"
+.PP
+Definition at line 53 of file main.cpp.
+.SS "int \fBtexdepth\fP = 128"
+.PP
+Definition at line 48 of file main.cpp.
+.SS "int \fBtexheight\fP = 256"
+.PP
+Definition at line 47 of file main.cpp.
+.SS "GLuint \fBtexid_1D\fP"
+.PP
+Definition at line 45 of file main.cpp.
+.SS "GLuint \fBtexid_3D\fP"
+.PP
+Definition at line 45 of file main.cpp.
+.SS "int \fBtexwidth\fP = 256"
+.PP
+Definition at line 46 of file main.cpp.
 .SS "GLuint \fBtheVolume\fP[6]"
+.PP
+Definition at line 75 of file main.cpp.
 .SS "float \fBtick\fP = 0"
+.PP
+Definition at line 50 of file main.cpp.
 .SS "float \fBtk\fP"
+.PP
+Definition at line 73 of file main.cpp.
 .SS "int \fBTproxyGeometry\fP = 0"
+.PP
+Definition at line 79 of file main.cpp.
 .SS "int \fBwindow\fP"
+.PP
+Definition at line 34 of file main.cpp.
 .SS "int \fBwinHeight\fP"
+.PP
+Definition at line 69 of file main.cpp.
 .SS "int \fBwinWidth\fP"
+.PP
+Definition at line 69 of file main.cpp.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for VisDaVol from the source code.

@@ -88,7 +88,7 @@ void createColorMap (COLORMAP cm)
 {
 	int i, cr, cg, cb, a;
 
-	for(i=0;i<255;i++) {
+	for(i=0;i<256;i++) {
 
 		//rgb
 		if(i>130 && i<180) {
@@ -106,13 +106,15 @@ void createColorMap (COLORMAP cm)
 	    }
 
 		//alpha
-		if(i>15) a=0x20;
-        else a=0x00;
+		if(i>15) a=16;
+        else a=0;
 
         cm[i].r = cr;    // red
         cm[i].g = cg;    // green
         cm[i].b = cb;    // blue
         cm[i].alfa = a;	  // alfa
+
+        printf("%d -> (%d, %d, %d, %d)\n",i,cm[i].r,cm[i].g,cm[i].b,cm[i].alfa);
 
 	}
 
