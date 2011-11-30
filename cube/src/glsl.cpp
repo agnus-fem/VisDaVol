@@ -8,7 +8,7 @@
 #include "glsl.h"
 
 //YEAH, YEAH, YEAH ... global vars, this is a freggn demo!
-	GLuint v,f,f2,p,g;			//Handlers for our vertex, geometry, and fragment shaders
+	GLuint v,f,f2,p,g;		//Handlers for our vertex, geometry, and fragment shaders
 	int gw,gh;				//Keep track of window width and height
 
 //Function from: http://www.evl.uic.edu/aej/594/code/ogl.cpp
@@ -104,68 +104,78 @@ void printProgramInfoLog(GLuint obj)
 
 //Got this from http://cirl.missouri.edu/gpu/glsl_lessons/glsl_geometry_shader/index.html
 //Setup shaders
-void setShaders(void)
+void setShaders(GLuint *p)
 {
 	//a few strings
 	// will hold onto the file read in!
 	char *vs = NULL, *fs = NULL, *fs2 = NULL, *gs = NULL;
 
 	//First, create our shaders
-	//v = glCreateShader(GL_VERTEX_SHADER);
-	printf("Criando o shader\n");
+	printf("First, create our shaders\n");
+	v = glCreateShader(GL_VERTEX_SHADER);
 	f = glCreateShader(GL_FRAGMENT_SHADER);
-	printf("\tShader criado\n");
 	//g = glCreateShader(GL_GEOMETRY_SHADER_EXT);
 
 	//Read in the programs
-	//vs = textFileRead("GLSL/toon.vert");
-	printf("Lendo o Fragment shader\n");
-	fs = textFileRead("GLSL/toon.frag");
-	printf("\tFragment Shader lido\n");
-	//gs = textFileRead("GLSL/toon.geom");
+	printf("Read in the programs\n");
+	//vs = textFileRead("GLSL/v2/shader.vert");
+	//printf("Vertex Shader:\n%s\n",vs);
+	fs = textFileRead("GLSL/v3/postInttf.frag");
+	//fs = textFileRead("GLSL/v2/shader.frag");
+	printf("Fragment Shader:\n%s\n",fs);
+	//gs = textFileRead("GLSL/shader.geom");
+	//printf("Geometry Shader:\n%s\n",gs);
 
 	//Setup a few constant pointers for below
 	const char * ff = fs;
 	//const char * vv = vs;
 	//const char * gg = gs;
 
+    printf("Loading Shader Source\n");
 	//glShaderSource(v, 1, &vv, NULL);
-	printf("Definindo o codigo fonte para o Fragment Shader\n");
 	glShaderSource(f, 1, &ff, NULL);
-	printf("\tDefinicao do codigo do Fragment Shader concluida\n");
 	//glShaderSource(g, 1, &gg, NULL);
 
 	//free(vs);
 	free(fs);
 	//free(gs);
 
+    printf("Compiling Source\n");
 	//glCompileShader(v);
-	printf("Compilando o Fragment Shader\n");
 	glCompileShader(f);
-	printf("\tCompilacao do Fragment Shader concluida\n");
 	//glCompileShader(f2);
 	//glCompileShader(g);
 
-	printf("Criando o programa\n");
-	p = glCreateProgram();
-	printf("\tCriacao do programa concluida\n");
+	printf("Creating Program\n");
+	*p = glCreateProgram();
 
-	glAttachShader(p,f);
+	printf("Attaching Shaders to Program Shader\n");
+	printf("Fragment Shader\n");
+	glAttachShader(*p,f);
+	//printf("Vertex Shader\n");
 	//glAttachShader(p,v);
+	//glAttachShader(p,f2);
+	//printf("Geometric Shader\n");
 	//glAttachShader(p,g);
 
-	glProgramParameteriEXT(p,GL_GEOMETRY_INPUT_TYPE_EXT,GL_LINES);
-	glProgramParameteriEXT(p,GL_GEOMETRY_OUTPUT_TYPE_EXT,GL_LINE_STRIP);
+    //printf("Program Parameter 1\n");
+	//glProgramParameteriEXT(p,GL_GEOMETRY_INPUT_TYPE_EXT,GL_LINES);
+	//glProgramParameteriEXT(p,GL_GEOMETRY_OUTPUT_TYPE_EXT,GL_LINE_STRIP);
 
-	int temp;
-	glGetIntegerv(GL_MAX_GEOMETRY_OUTPUT_VERTICES_EXT,&temp);
-	glProgramParameteriEXT(p,GL_GEOMETRY_VERTICES_OUT_EXT,temp);
-	glLinkProgram(p);
-	glUseProgram(p);
+	//int temp;
+	//printf("Program Parameter 2\n");
+	//glGetIntegerv(GL_MAX_GEOMETRY_OUTPUT_VERTICES_EXT,&temp);
+	//printf("GL_MAX_GEOMETRY_OUTPUT_VERTICES_EXT = %d \n", (int)temp);
+	//glProgramParameteriEXT(p,GL_GEOMETRY_VERTICES_OUT_EXT,temp);
 
-	printShaderInfoLog(v);
+    printf("Link Program\n");
+	glLinkProgram(*p);
+	//printf("Use Program\n");
+	//glUseProgram(p);
+
+	//printShaderInfoLog(v);
 	printShaderInfoLog(f);
-	printShaderInfoLog(f2);
-	printShaderInfoLog(g);
-	printProgramInfoLog(p);
+	//printShaderInfoLog(f2);
+	//printShaderInfoLog(g);
+	//printProgramInfoLog(p);
 }
