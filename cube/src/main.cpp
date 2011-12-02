@@ -1,15 +1,3 @@
-//
-// This code was created by Jeff Molofee '99 (ported to Linux/GLUT by Richard Campbell '99)
-//
-// If you've found this code useful, please let me know.
-//
-// Visit me at www.demonews.com/hosted/nehe
-// (email Richard Campbell at ulmont@bellsouth.net)
-//
-// YLP 31/05/2011 : modify it for only display a cube
-//#include <GL/glut.h>    // Header File For The GLUT Library
-//#include <GL/gl.h>	// Header File For The OpenGL32 Library
-//#include <GL/glu.h>	// Header File For The GLu32 Library
 #include <unistd.h>     // needed to sleep
 #include <stdio.h>
 #include <string.h>
@@ -18,9 +6,6 @@
 #include "glsl.h"
 #include <GL/glew.h>
 #include <GL/glut.h>    // Header File For The GLUT Library
-//#include <GL/gl.h>	// Header File For The OpenGL32 Library
-//#include <GL/glu.h>	// Header File For The GLu32 Library
-
 #include "transf.h"
 
 #define X 0
@@ -43,9 +28,9 @@ char btStatus = 0;
 
 /* Texture */
 GLuint texid_3D, texid_1D;
-int texwidth = 256;
-int texheight = 256;
-int texdepth = 128;
+int texwidth = 384;
+int texheight = 384;
+int texdepth = 384;
 
 float tick = 0;
 float stick = 1;
@@ -79,9 +64,10 @@ float m[16];
 int TproxyGeometry = 0;
 
 GLuint ProgramObject;
+COLORMAP cm;
 
 //!
- /*!
+/*!
  * @brief Esta função faz com que um valor fique restrito dentro de uma faixa de valores definida por um valor mínimo e máximo
  *
  * \author Agnus A. Horta.
@@ -164,86 +150,6 @@ void createPreintegrationTable(GLubyte* Table) {
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 }
 
-void DrawCube1() {
-
-	float aux;
-
-	glColor3f(1.0f, 1.0f, 1.0f);
-	glTranslatef(-0.5f, -0.5f, -0.5f);
-
-	//tick = 0.0f;
-
-
-	//do {
-	glEnable( GL_DEPTH_TEST); // Enable Depth Testing
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); // Enable Alpha Blending (disable alpha testing)
-	glEnable( GL_BLEND);
-	glEnable( GL_TEXTURE_3D);
-	glBegin( GL_QUADS);
-
-	tick += (stick * 0.00001);
-
-	if (tick >= 1.0f) {
-		stick = -stick;
-		tick = 1.0f;
-	}
-	if (tick <= 0.0f) {
-		stick = -stick;
-		tick = 0.0f;
-	}
-
-	// frente
-	aux = tick;
-	tick = 0.03f;
-	glTexCoord3f(0.0f, 0.0f, tick);
-	glVertex3f(0.0f, 0.0f, tick);
-	glTexCoord3f(0.0f, 1.0f, tick);
-	glVertex3f(0.0, 1.0f, tick);
-	glTexCoord3f(1.0f, 1.0f, tick);
-	glVertex3f(1.0f, 1.0f, tick);
-	glTexCoord3f(1.0f, 0.0f, tick);
-	glVertex3f(1.0f, 0.0, tick);
-
-	tick = 0.5f;
-	glTexCoord3f(0.0f, 0.0f, tick);
-	glVertex3f(0.0f, 0.0f, tick);
-	glTexCoord3f(0.0f, 1.0f, tick);
-	glVertex3f(0.0, 1.0f, tick);
-	glTexCoord3f(1.0f, 1.0f, tick);
-	glVertex3f(1.0f, 1.0f, tick);
-	glTexCoord3f(1.0f, 0.0f, tick);
-	glVertex3f(1.0f, 0.0, tick);
-
-	// fundo
-	tick = 0.7f;
-	glTexCoord3f(0.0f, 0.0f, tick);
-	glVertex3f(0.0f, 0.0f, tick);
-	glTexCoord3f(1.0f, 0.0f, tick);
-	glVertex3f(1.0f, 0.0, tick);
-	glTexCoord3f(1.0f, 1.0f, tick);
-	glVertex3f(1.0f, 1.0f, tick);
-	glTexCoord3f(0.0f, 1.0f, tick);
-	glVertex3f(0.0, 1.0f, tick);
-
-	tick = aux;
-
-	glEnd();
-
-	//} while (tick<1.0f);
-
-	glDisable(GL_TEXTURE_3D);
-
-	// Done Drawing The Cube
-	glBegin( GL_LINE_LOOP);
-	glColor3f(1.0f, 1.0f, 1.0f);
-	glVertex3f(0.0f, tick, 0.0);
-	glVertex3f(1.0f, tick, 0.0f);
-	glVertex3f(1.0f, tick, 1.0f);
-	glVertex3f(0.0f, tick, 1.0f);
-	glEnd();
-
-}
-
 /* Funções adicionais para uso do slice direction */
 float abs(float x) {
 	return ((x < 0) ? (-x) : x);
@@ -316,40 +222,17 @@ void DrawSliceStack(int proxyGeometry) {
 	glColor3f(1.0f, 1.0f, 1.0f);
 	glTranslatef(-0.5f, -0.5f, -0.5f);
 
-	//glUseProgram(prog);
-
-
-	glEnable( GL_TEXTURE_3D );
-	glEnable( GL_TEXTURE_1D );
-	glDisable( GL_DEPTH_TEST ); // Enable Depth Testing
+	glDisable(GL_DEPTH_TEST); // Enable Depth Testing
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); // Enable Alpha Blending (disable alpha testing)
-	glEnable( GL_BLEND );
+	glEnable(GL_BLEND);
 
 	glCallList(theVolume[proxyGeometry]);
 	glFlush();
 
-	//glDisable(GL_TEXTURE_3D);
-
-	// Done Drawing The Cube
-	/* glBegin(GL_LINE_LOOP);
-	 glColor3f(1.0f,1.0f,1.0f);
-	 glVertex3f(  0.0f, 0.0f,0.0);
-	 glVertex3f(  1.0f, 0.0f,0.0f );
-	 glVertex3f(  1.0f,0.0f, 1.0f );
-	 glVertex3f(  0.0f,0.0f, 1.0f );
-	 glEnd();
-	 */
-	//printf("ProxyGeometry = %d\n",proxyGeometry);
 }
 
 void MatVecMultiply(GLfloat pModelViewMatrixInv[16], GLfloat pViewVector[4]) {
 	GLfloat pViewVector1[4];
-
-	/*
-	 pViewVector1[0]=pModelViewMatrixInv[0]*pViewVector[0]+pModelViewMatrixInv[1]*pViewVector[1]+pModelViewMatrixInv[2]*pViewVector[2];
-	 pViewVector1[1]=pModelViewMatrixInv[4]*pViewVector[0]+pModelViewMatrixInv[5]*pViewVector[1]+pModelViewMatrixInv[6]*pViewVector[2];
-	 pViewVector1[2]=pModelViewMatrixInv[8]*pViewVector[0]+pModelViewMatrixInv[9]*pViewVector[1]+pModelViewMatrixInv[10]*pViewVector[2];
-	 */
 
 	pViewVector1[0] = pModelViewMatrixInv[0] * pViewVector[0]
 			+ pModelViewMatrixInv[4] * pViewVector[1] + pModelViewMatrixInv[8]
@@ -425,21 +308,13 @@ void InitTexture() {
 	ptr = (GLubyte *) malloc(texwidth * texheight * texdepth * sizeof(GLubyte)
 			* 1);
 	memset(ptr, 0x00, texwidth * texheight * texdepth * sizeof(GLubyte) * 1);
-	//ptr=(GLubyte *) malloc(d_width*d_height*d_slices*4);
-	//memset(ptr,0x00,d_width*d_height*d_slices*4);
+
 	texData = ptr;
-	printf("malloc = %p, texData = %p, size=%d \n", ptr, texData, texwidth
-			* texheight * texdepth * sizeof(GLubyte) * 1);
 
 	wc = (texwidth - d_width) / 2;
 	hc = (texheight - d_height) / 2;
 	dc = (texdepth - d_slices) / 2;
 
-	COLORMAP cm;
-
-	createColorMap(cm);
-	colorMapWrite("teste.map", cm);
-	colorMapRead("teste.map", cm);
 	//ptr+=(wc+hc*texwidth+dc*texwidth*texheight);
 
 	for (p = 0; p < d_slices; p++) {
@@ -466,40 +341,29 @@ void InitTexture() {
 
 	printf("Carregou textura 3D\n");
 
-	GLuint * tex1D;
-	tex1D = (GLuint *) malloc(1024 * sizeof(GLuint));
+	GLubyte tex1D[256][4];
+	//tex1D = (GLuint *) malloc(1024 * sizeof(GLuint));
 
 	for (i = 0; i < 256; i++) {
-		tex1D[i * 4] = cm[i].r;
-		tex1D[i * 4 + 1] = cm[i].g;
-		tex1D[i * 4 + 2] = cm[i].b;
-		tex1D[i * 4 + 3] = cm[i].alfa;
-		printf("%d -> (%d, %d, %d, %d)\n", i, tex1D[i * 4], tex1D[i * 4 + 1],
-				tex1D[i * 4 + 2], tex1D[i * 4 + 3]);
+		tex1D[i][0] = (GLuint) cm[i].r;
+		tex1D[i][1] = (GLuint) cm[i].g;
+		tex1D[i][2] = (GLuint) cm[i].b;
+		tex1D[i][3] = (GLuint) cm[i].alfa;
 	}
 
 	printf("Carregou textura 1D\n");
-	glEnable(GL_TEXTURE_1D);
-	glGenTextures(1, &texid_1D);
-	glBindTexture(GL_TEXTURE_1D, texid_1D); //Sélectionne ce n°
-	glTexImage1D(GL_TEXTURE_1D, //Type : texture 3D
-			0, //Mipmap : aucun
-			GL_RGBA, // (red,green,blue,alpha)
-			256, // Largeur
-			0, //Largeur du bord : 0
-			GL_RGBA, //Format : RGBA
-			GL_UNSIGNED_BYTE, //Type des couleurs
-			tex1D //Addresse de l'image
-	);
+
+	//glUseProgram(ProgramObject);
 
 	printf("Carregou toda a textura!\n");
-	glEnable(GL_TEXTURE_3D);
+
 	glGenTextures(1, &texid_3D);
+	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_3D, texid_3D); //Sélectionne ce n°
 
 	glTexImage3D(GL_TEXTURE_3D, //Type : texture 3D
 			0, //Mipmap : aucun
-			GL_LUMINANCE, // (red,green,blue,alpha)
+			GL_LUMINANCE8, // (red,green,blue,alpha)
 			texwidth, // Largeur
 			texheight, // Hauteur
 			texdepth, // profondeur
@@ -510,15 +374,29 @@ void InitTexture() {
 	);
 	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	printf("Textura 3D criada!\n");
+
+	glGenTextures(1, &texid_1D);
+	glActiveTexture(GL_TEXTURE1);
+	glBindTexture(GL_TEXTURE_1D, texid_1D); //Sélectionne ce n°
+	glTexParameteri(GL_TEXTURE_1D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_1D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_1D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexImage1D(GL_TEXTURE_1D, //Type : texture 3D
+			0, //Mipmap : aucun
+			GL_RGBA8, // (red,green,blue,alpha)
+			256, // Largeur
+			0, //Largeur du bord : 0
+			GL_RGBA, //Format : RGBA
+			GL_UNSIGNED_BYTE, //Type des couleurs
+			tex1D //Addresse de l'image
+	);
 
 	//Activate and select 3D Texture
-	glActiveTexture(GL_TEXTURE0);
+
 	glBindTexture(GL_TEXTURE_3D, texid_3D);
 	glEnable(GL_TEXTURE_3D);
 
 	//Activate and select 1D Texture
-	glActiveTexture(GL_TEXTURE1);
 	glBindTexture(GL_TEXTURE_1D, texid_1D);
 	glEnable(GL_TEXTURE_1D);
 
@@ -533,7 +411,7 @@ void InitDraw(void) {
 
 		tick = 0.0f;
 
-		glBegin( GL_QUADS);
+		glBegin(GL_QUADS);
 		do {
 
 			switch (i) {
@@ -619,21 +497,51 @@ void InitDraw(void) {
 
 	}
 }
+
 /* A general OpenGL initialization function.  Sets all of the initial parameters. */
 void InitGL(int Width, int Height) // We call this right after our OpenGL window is created.
 {
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f); // This Will Clear The Background Color To Black
 	glClearDepth(1.0); // Enables Clearing Of The Depth Buffer
-	glDepthFunc( GL_GREATER); // The Type Of Depth Test To Do
-	glEnable( GL_DEPTH_TEST); // Enables Depth Testing
-	glShadeModel( GL_SMOOTH); // Enables Smooth Color Shading
+	glDepthFunc(GL_GREATER); // The Type Of Depth Test To Do
+	glEnable(GL_DEPTH_TEST); // Enables Depth Testing
+	glShadeModel(GL_SMOOTH); // Enables Smooth Color Shading
 
-	glMatrixMode( GL_PROJECTION);
+	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity(); // Reset The Projection Matrix
 
 	gluPerspective(30.0f, (GLfloat) Width / (GLfloat) Height, 0.1f, 100.0f); // Calculate The Aspect Ratio Of The Window
 
-	glMatrixMode( GL_MODELVIEW);
+	glMatrixMode(GL_MODELVIEW);
+
+	//http://cirl.missouri.edu/gpu/glsl_lessons/glsl_geometry_shader/index.html
+
+	setShaders(&ProgramObject);
+
+	//http://www.opengl.org/wiki/Texture_Sampling
+	//Setting shader's uniform variables
+	GLint volume_location = glGetUniformLocation(ProgramObject,
+			"volume_texture");
+	GLint tf_location =
+			glGetUniformLocation(ProgramObject, "transfer_function");
+
+	//Checking if the state of the shader is also consider invalid.
+	int isValid;
+	glValidateProgram(ProgramObject);
+	glGetProgramiv(ProgramObject, GL_VALIDATE_STATUS, &isValid);
+	if (isValid)
+		printf("Shader is valid!\n");
+	else {
+		printf("Shader isn't Valid!");
+		exit(1);
+	}
+
+	// So, to set up those uniforms, bind the shader and call glUniform1i since they are considered as integers
+	glUseProgram(ProgramObject);
+	//Bind to tex unit 0
+	glUniform1i(volume_location, 0);
+	//Bind to tex unit 1
+	glUniform1i(tf_location, 1);
 
 	InitTexture();
 
@@ -648,11 +556,11 @@ void ReSizeGLScene(int Width, int Height) {
 
 	glViewport(0, 0, Width, Height); // Reset The Current Viewport And Perspective Transformation
 
-	glMatrixMode( GL_PROJECTION);
+	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
 	gluPerspective(30.0f, (GLfloat) Width / (GLfloat) Height, 0.1f, 100.0f);
-	glMatrixMode( GL_MODELVIEW);
+	glMatrixMode(GL_MODELVIEW);
 	winWidth = Width;
 	winHeight = Height;
 }
@@ -750,11 +658,6 @@ GLubyte * readRAW(int argc, char **argv) {
 	GLubyte *data;
 	FILE *fp;
 
-	if (argc < 6) {
-		printf("usage: leitura arqin.raw width height slices dslices\n");
-		exit(1);
-	}
-
 	if (!(fp = fopen(argv[1], "rb"))) {
 		printf("impossible open file %s!\n", argv[1]);
 		exit(2);
@@ -778,6 +681,10 @@ GLubyte * readRAW(int argc, char **argv) {
 
 int main(int argc, char **argv) {
 
+	if (argc < 6) {
+		printf("usage: leitura arqin.raw width height slices dslices colormap\n");
+		exit(1);
+	}
 
 	glutInit(&argc, argv);
 	//glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
@@ -815,36 +722,14 @@ int main(int argc, char **argv) {
 		exit(1);
 	}
 
-	//http://cirl.missouri.edu/gpu/glsl_lessons/glsl_geometry_shader/index.html
-
-	setShaders(&ProgramObject);
-
-	InitGL(640, 640);
-
-	//http://www.opengl.org/wiki/Texture_Sampling
-	//Setting shader's uniform variables
-	GLint volume_location = glGetUniformLocation(ProgramObject, "volume_texture");
-	GLint tf_location = glGetUniformLocation(ProgramObject, "transfer_function");
-
-	//Checking if the state of the shader is also consider invalid.
-	int isValid;
-	glValidateProgram(ProgramObject);
-	glGetProgramiv(ProgramObject, GL_VALIDATE_STATUS, &isValid);
-	if(isValid) printf("Shader is valid!\n");
+	if(argc==7) colorMapRead(argv[6],cm);
 	else {
-		printf("Shader isn't Valid!");
-		exit(1);
+		createColorMap(cm);
+		//colorMapWrite("teste.map", cm);
+		//colorMapRead("teste.map", cm);
 	}
 
-	// So, to set up those uniforms, bind the shader and call glUniform1i since they are considered as integers
-	glUseProgram(ProgramObject);
-	//Bind to tex unit 0
-	glUniform1i(volume_location, 0);
-	//Bind to tex unit 1
-	glUniform1i(tf_location, 1);
-
-
-	//InitGL(320,320);
+	InitGL(640, 640);
 
 	/* Start Event Processing Engine */
 	glutMainLoop();
