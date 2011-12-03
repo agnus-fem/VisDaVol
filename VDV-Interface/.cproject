@@ -24,12 +24,14 @@
 <tool id="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.866706112" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug">
 <option id="gnu.cpp.compiler.exe.debug.option.optimization.level.1475448817" name="Optimization Level" superClass="gnu.cpp.compiler.exe.debug.option.optimization.level" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
 <option id="gnu.cpp.compiler.exe.debug.option.debugging.level.456060964" name="Debug Level" superClass="gnu.cpp.compiler.exe.debug.option.debugging.level" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
-<option id="gnu.cpp.compiler.option.other.other.1523524298" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" value="-c -fmessage-length=0 `pkg-config --cflags --libs gtk+-2.0`" valueType="string"/>
+<option id="gnu.cpp.compiler.option.other.other.1523524298" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" value="-c -fmessage-length=0 " valueType="string"/>
 <option id="gnu.cpp.compiler.option.include.paths.621117020" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
-<listOptionValue builtIn="false" value="/usr/include/gtk-2.0"/>
+<listOptionValue builtIn="false" value="/usr/include/GL"/>
+<listOptionValue builtIn="false" value="/usr/lib/gtkglext-1.0/include"/>
+<listOptionValue builtIn="false" value="/usr/include/gtkglext-1.0/"/>
 <listOptionValue builtIn="false" value="/usr/include/gtk-2.0"/>
 <listOptionValue builtIn="false" value="/usr/lib/gtk-2.0/include"/>
-<listOptionValue builtIn="false" value="/usr/include/atk-1.0 "/>
+<listOptionValue builtIn="false" value="/usr/include/atk-1.0"/>
 <listOptionValue builtIn="false" value="/usr/include/cairo"/>
 <listOptionValue builtIn="false" value="/usr/include/gdk-pixbuf-2.0"/>
 <listOptionValue builtIn="false" value="/usr/include/pango-1.0"/>
@@ -49,8 +51,10 @@
 </tool>
 <tool id="cdt.managedbuild.tool.gnu.c.linker.exe.debug.330598073" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.debug"/>
 <tool id="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug.757207563" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug">
-<option id="gnu.cpp.link.option.libs.1820510366" superClass="gnu.cpp.link.option.libs" valueType="libs">
+<option id="gnu.cpp.link.option.libs.1820510366" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
 <listOptionValue builtIn="false" value="gtk-x11-2.0"/>
+<listOptionValue builtIn="false" value="GLEW"/>
+<listOptionValue builtIn="false" value="GL"/>
 <listOptionValue builtIn="false" value="gdk-x11-2.0"/>
 <listOptionValue builtIn="false" value="atk-1.0"/>
 <listOptionValue builtIn="false" value="gio-2.0"/>
@@ -68,6 +72,10 @@
 <listOptionValue builtIn="false" value="gthread-2.0"/>
 <listOptionValue builtIn="false" value="rt"/>
 <listOptionValue builtIn="false" value="glib-2.0"/>
+<listOptionValue builtIn="false" value="xml2"/>
+<listOptionValue builtIn="false" value="GLU"/>
+<listOptionValue builtIn="false" value="gtkglext-x11-1.0"/>
+<listOptionValue builtIn="false" value="glut"/>
 </option>
 <inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.610903592" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 <additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
